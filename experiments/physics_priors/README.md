@@ -200,6 +200,10 @@ mostly on CPU.
 Remote full official-prediction results with native conda Python:
 
 ```text
+Paper Table 3 final results:
+ARC-1 VARC / ensemble: 54.5% / 60.4%
+ARC-2 VARC / ensemble: 8.3% / 11.1%
+
 ARC-1 ensemble, ARC-AGI evaluation, 400 tasks
 majority pass@1/pass@2: 55.125% / 60.50%
 best hybrid pass@1/pass@2: 55.875% / 61.00% at vote_weight=1.75
@@ -221,6 +225,27 @@ sets. That means exact D4-plus-color-map rules are too narrow for the current
 candidate pool; the next symbolic prior should handle object transport,
 cropping, tiling, and partial-copy mechanisms rather than only global image
 symmetries.
+
+Additional pass@2 selection searches:
+
+```text
+ARC-1 ensemble:
+best top-2 selection strategy: hybrid/log/w=1.75
+pass@1/pass@2: 55.875% / 61.00%
+anchored-second, top-k reranking, and gap-switching did not exceed 61.00%.
+source-aware ViT/U-Net diversity reached 60.625%, below the hybrid result.
+
+ARC-2 ensemble:
+best top-2 selection strategy: majority
+pass@1/pass@2: 9.44% / 11.11%
+hybrid, anchored-second, top-k reranking, gap-switching, and source-aware
+diversity did not exceed majority.
+```
+
+Interpretation: the post-processing result is slightly above the paper's ARC-1
+ensemble number and essentially tied with the paper's rounded ARC-2 ensemble
+number. The remaining gap to the oracle is not mostly a top-2 selection problem;
+it requires generating better candidates or adding broader structural solvers.
 
 ## Next Structural Direction
 
