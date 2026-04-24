@@ -118,6 +118,59 @@ def make_episodes(n: int, size: int, colors: int, seed: int, device: torch.devic
     )
 
 
+def random_grid_torch(n: int, size: int, colors: int, density: float, device: torch.device) -> torch.Tensor:
+    values = torch.randint(1, colors, (n, size, size), device=device)
+    mask = torch.rand((n, size, size), device=device) < density
+    grids = torch.where(mask, values, torch.zeros((), dtype=torch.long, device=device))
+
+    # A few anchors reduce accidental symmetries while keeping generation vectorized.
+    anchor_count = 4
+    batch_idx = torch.arange(n, device=device).repeat_interleave(anchor_count)
+    ys = torch.randint(0, size, (n * anchor_count,), device=device)
+    xs = torch.randint(0, size, (n * anchor_count,), device=device)
+    colors_t = torch.randint(1, colors, (n * anchor_count,), device=device)
+    grids[batch_idx, ys, xs] = colors_t
+    return grids
+
+
+def apply_torch_by_id(grids: torch.Tensor, transform_ids: torch.Tensor) -> torch.Tensor:
+    out = torch.empty_like(grids)
+    for idx, name in enumerate(TRANSFORMS):
+        mask = transform_ids == idx
+        if mask.any():
+            out[mask] = apply_torch(grids[mask], name)
+    return out
+
+
+def make_episodes_torch_random(
+    n: int,
+    size: int,
+    colors: int,
+    seed: int,
+    density: float,
+    device: torch.device,
+) -> Episodes:
+    if device.type == "cuda":
+        with torch.random.fork_rng(devices=[device.index or 0]):
+            torch.manual_seed(seed)
+            transform_ids = torch.randint(len(TRANSFORMS), (n,), device=device)
+            demo_in = random_grid_torch(n, size, colors, density, device)
+            query_in = random_grid_torch(n, size, colors, density, device)
+    else:
+        torch.manual_seed(seed)
+        transform_ids = torch.randint(len(TRANSFORMS), (n,), device=device)
+        demo_in = random_grid_torch(n, size, colors, density, device)
+        query_in = random_grid_torch(n, size, colors, density, device)
+
+    return Episodes(
+        demo_in=demo_in,
+        demo_out=apply_torch_by_id(demo_in, transform_ids),
+        query_in=query_in,
+        query_out=apply_torch_by_id(query_in, transform_ids),
+        transform_ids=transform_ids,
+    )
+
+
 class DemoConditionedCNN(nn.Module):
     def __init__(self, colors: int, hidden: int = 64) -> None:
         super().__init__()
@@ -226,6 +279,12 @@ def main() -> None:
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--seed", type=int, default=7)
+    parser.add_argument(
+        "--episode-generator",
+        choices=("structured", "torch-random"),
+        default="structured",
+    )
+    parser.add_argument("--density", type=float, default=0.18)
     parser.add_argument("--json-out", type=Path, default=None)
     args = parser.parse_args()
 
@@ -237,8 +296,26 @@ def main() -> None:
         device = torch.device("cpu")
 
     torch.manual_seed(args.seed)
-    train = make_episodes(args.train_size, args.grid_size, args.colors, args.seed, device)
-    test = make_episodes(args.test_size, args.grid_size, args.colors, args.seed + 1, device)
+    if args.episode_generator == "torch-random":
+        train = make_episodes_torch_random(
+            args.train_size,
+            args.grid_size,
+            args.colors,
+            args.seed,
+            args.density,
+            device,
+        )
+        test = make_episodes_torch_random(
+            args.test_size,
+            args.grid_size,
+            args.colors,
+            args.seed + 1,
+            args.density,
+            device,
+        )
+    else:
+        train = make_episodes(args.train_size, args.grid_size, args.colors, args.seed, device)
+        test = make_episodes(args.test_size, args.grid_size, args.colors, args.seed + 1, device)
 
     gate_exact, gate_transform_acc = selective_symmetry_gate(test)
     cnn = train_cnn(train, test, args.colors, args.batch_size, args.epochs, args.lr)
@@ -246,6 +323,8 @@ def main() -> None:
     summary = {
         "device": str(device),
         "transforms": list(TRANSFORMS),
+        "episode_generator": args.episode_generator,
+        "density": args.density,
         "train_size": args.train_size,
         "test_size": args.test_size,
         "selective_gate_exact": gate_exact,

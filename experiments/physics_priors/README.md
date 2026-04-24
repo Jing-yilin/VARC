@@ -66,6 +66,10 @@ rule is one of:
 identity, rot90, rot180, rot270, flipud, fliplr
 ```
 
+Use `--episode-generator torch-random` for GPU-resident random-grid generation
+when scaling this experiment on CUDA. The original `structured` generator is
+more ARC-like but Python-loop-bound during data generation.
+
 Latest local result on Apple M5 / MPS:
 
 ```text
