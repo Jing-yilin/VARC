@@ -1,0 +1,16 @@
+[project]
+name = "varc-physics-priors"
+version = "0.1.0"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+  "torch==2.7.0",
+  "torchvision==0.22.0",
+  "wandb==0.22.0",
+  "numpy>=1.26,<2",
+  "huggingface-hub",
+  "timm==1.0.12",
+  "einops",
+  "datasets==2.14.4",
+  "diffusers",
+  "pyarrow>=14,<15",
+]

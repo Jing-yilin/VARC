@@ -29,6 +29,10 @@ def set_seed(seed: int) -> None:
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
 
+
+def _metric_dtype(device: torch.device) -> torch.dtype:
+    return torch.float32 if device.type == "mps" else torch.float64
+
 @torch.no_grad()
 def evaluate(
     model: torch.nn.Module,
@@ -92,7 +96,7 @@ def evaluate(
     if distributed and dist.is_initialized():
         totals = torch.tensor(
             [total_loss, total_pixels, total_exact, total_examples],
-            dtype=torch.float64,
+            dtype=_metric_dtype(device),
             device=device,
         )
         dist.all_reduce(totals, op=dist.ReduceOp.SUM)
@@ -255,7 +259,7 @@ def train(args: argparse.Namespace) -> None:
 
             train_totals = torch.tensor(
                 [running_loss, sample_count, train_exact, train_examples],
-                dtype=torch.float64,
+                dtype=_metric_dtype(device),
                 device=device,
             )
             if distributed and dist.is_initialized():

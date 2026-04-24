@@ -10,7 +10,12 @@ def init_distributed_mode(args: argparse.Namespace) -> Tuple[bool, int, int, int
     rank = 0
     world_size = max(env_world_size, 1)
     local_rank = int(os.environ.get("LOCAL_RANK", "0"))
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if torch.cuda.is_available():
+        device = torch.device("cuda")
+    elif torch.backends.mps.is_available():
+        device = torch.device("mps")
+    else:
+        device = torch.device("cpu")
 
     if not distributed:
         return False, rank, world_size, local_rank, device
@@ -38,6 +43,9 @@ def init_distributed_mode(args: argparse.Namespace) -> Tuple[bool, int, int, int
             f"Requested local_rank={local_rank}, but only {torch.cuda.device_count()} GPU(s) are available."
             " Adjust the launch command (e.g., --nproc_per_node) or disable --distributed."
         )
+    elif torch.backends.mps.is_available():
+        device = torch.device("mps")
+        backend = "gloo"
     else:
         device = torch.device("cpu")
         backend = "gloo"

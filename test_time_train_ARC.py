@@ -30,6 +30,10 @@ def set_seed(seed: int) -> None:
     torch.cuda.manual_seed_all(seed)
 
 
+def _metric_dtype(device: torch.device) -> torch.dtype:
+    return torch.float32 if device.type == "mps" else torch.float64
+
+
 def ttt_once(model, device, distributed, rank, train_loader, train_sampler, eval_loader, cur_attempt_idx):
     autocast_device_type = device.type if device.type in {"cuda", "cpu", "mps"} else "cuda"
     is_main_process = (not distributed) or rank == 0
@@ -124,7 +128,7 @@ def ttt_once(model, device, distributed, rank, train_loader, train_sampler, eval
 
             train_totals = torch.tensor(
                 [running_loss, sample_count, train_exact, train_examples],
-                dtype=torch.float64,
+                dtype=_metric_dtype(device),
                 device=device,
             )
             if distributed and dist.is_initialized():
