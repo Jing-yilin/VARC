@@ -85,6 +85,26 @@ does not learn the algorithm "infer the active symmetry, then apply it" from
 this amount of data. An explicit selective-equivariance module solves the task
 without training.
 
+Remote CUDA scaling result on RTX 4090 with `/root/miniconda3/bin/python`:
+
+```text
+generator: torch-random, CUDA-resident
+train/test: 500000 / 100000
+epochs: 200
+elapsed: 768.57s
+selective gate exact: 100.00%
+selective gate transform accuracy: 100.00%
+CNN best exact: 16.99% at epoch 39
+CNN best pixel accuracy: 84.79% at epoch 112
+CNN final exact: 14.18%
+CNN final pixel accuracy: 84.05%
+```
+
+Interpretation: even when generation and training are GPU-resident and the CNN
+gets much more data and compute, the explicit "infer the active symmetry, then
+apply it" mechanism remains qualitatively better. Brute force learns useful
+pixel statistics but still does not reliably learn the algorithm.
+
 ## VARC MPS Smoke Test
 
 Command:
@@ -176,6 +196,31 @@ best hybrid in tested weights: same pass@1/pass@2 on this subset
 The full ARC-1/ARC-2 prediction reranking run is better suited for a remote GPU
 or CPU box because the current implementation is JSON/NumPy heavy and runs
 mostly on CPU.
+
+Remote full official-prediction results with native conda Python:
+
+```text
+ARC-1 ensemble, ARC-AGI evaluation, 400 tasks
+majority pass@1/pass@2: 55.125% / 60.50%
+best hybrid pass@1/pass@2: 55.875% / 61.00% at vote_weight=1.75
+oracle: 73.75%
+
+ARC-2 ViT, ARC-AGI-2 evaluation, 120 tasks
+majority pass@1/pass@2: 8.61% / 10.28%
+best hybrid pass@1/pass@2: 8.61% / 10.28% at vote_weight=5.0
+oracle: 13.06%
+
+ARC-2 ensemble, ARC-AGI-2 evaluation, 120 tasks
+majority pass@1/pass@2: 9.44% / 11.11%
+best hybrid pass@1/pass@2: 9.44% / 11.11% at vote_weight=5.0
+oracle: 15.42%
+```
+
+`relation_symbolic` produced the same metrics on these official prediction
+sets. That means exact D4-plus-color-map rules are too narrow for the current
+candidate pool; the next symbolic prior should handle object transport,
+cropping, tiling, and partial-copy mechanisms rather than only global image
+symmetries.
 
 ## Next Structural Direction
 
