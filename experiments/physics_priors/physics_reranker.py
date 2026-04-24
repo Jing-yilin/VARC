@@ -307,7 +307,18 @@ def symbolic_rule_energy(
     test_input: list[list[int]],
     candidate: list[list[int]],
 ) -> float:
-    rules = infer_transform_color_rules(demos)
+    return symbolic_rule_energy_for_rules(
+        infer_transform_color_rules(demos),
+        test_input,
+        candidate,
+    )
+
+
+def symbolic_rule_energy_for_rules(
+    rules: list[TransformColorRule],
+    test_input: list[list[int]],
+    candidate: list[list[int]],
+) -> float:
     if not rules:
         return 0.0
 

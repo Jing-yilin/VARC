@@ -11,7 +11,12 @@ from pathlib import Path
 from typing import Any
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
-from physics_reranker import relation_energy, relation_symbolic_energy, serialize
+from physics_reranker import (
+    infer_transform_color_rules,
+    relation_energy,
+    serialize,
+    symbolic_rule_energy_for_rules,
+)
 
 
 def load_json(path: Path) -> Any:
@@ -48,9 +53,11 @@ def score_entries(
     energy_mode: str,
 ) -> list[dict]:
     scored = []
-    energy_fn = relation_symbolic_energy if energy_mode == "relation_symbolic" else relation_energy
+    rules = infer_transform_color_rules(demos) if energy_mode == "relation_symbolic" else []
     for entry in entries:
-        energy = energy_fn(demos, test_input, entry["prediction"])
+        energy = relation_energy(demos, test_input, entry["prediction"])
+        if energy_mode == "relation_symbolic":
+            energy += symbolic_rule_energy_for_rules(rules, test_input, entry["prediction"])
         scored.append({**entry, "energy": energy, "vote_log": math.log1p(entry["votes"])})
     return scored
 
