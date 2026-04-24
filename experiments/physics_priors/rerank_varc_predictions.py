@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
-from physics_reranker import relation_energy, serialize
+from physics_reranker import relation_energy, relation_symbolic_energy, serialize
 
 
 def load_json(path: Path) -> Any:
@@ -45,10 +45,12 @@ def score_entries(
     entries: list[dict],
     demos: list[dict],
     test_input: list[list[int]],
+    energy_mode: str,
 ) -> list[dict]:
     scored = []
+    energy_fn = relation_symbolic_energy if energy_mode == "relation_symbolic" else relation_energy
     for entry in entries:
-        energy = relation_energy(demos, test_input, entry["prediction"])
+        energy = energy_fn(demos, test_input, entry["prediction"])
         scored.append({**entry, "energy": energy, "vote_log": math.log1p(entry["votes"])})
     return scored
 
@@ -144,6 +146,7 @@ def evaluate_task(
     output_root: str,
     vote_weights: list[float],
     preview_limit: int,
+    energy_mode: str,
 ) -> dict:
     task_path = Path(task_path_text)
     task_name = task_path.stem
@@ -167,7 +170,7 @@ def evaluate_task(
             continue
         entries = get_majority_vote(predictions_by_index[key])
         ground_truth = test_ex["output"]
-        scored_entries = score_entries(entries, demos, test_ex["input"])
+        scored_entries = score_entries(entries, demos, test_ex["input"], energy_mode)
 
         majority_pass1, majority_pass2, majority_rank = pass_metrics_for_order(entries, ground_truth)
         add_result(majority_metric, majority_pass1, majority_pass2, majority_rank, example_weight)
@@ -226,7 +229,13 @@ def evaluate(args: argparse.Namespace) -> dict:
     workers = max(args.workers, 1)
     if workers == 1:
         results = [
-            evaluate_task(str(path), args.output_root, args.vote_weights, args.preview)
+            evaluate_task(
+                str(path),
+                args.output_root,
+                args.vote_weights,
+                args.preview,
+                args.energy_mode,
+            )
             for path in files
         ]
     else:
@@ -239,6 +248,7 @@ def evaluate(args: argparse.Namespace) -> dict:
                     args.output_root,
                     args.vote_weights,
                     args.preview,
+                    args.energy_mode,
                 )
                 for path in files
             ]
@@ -271,6 +281,7 @@ def evaluate(args: argparse.Namespace) -> dict:
         "data_root": str(args.data_root),
         "split": args.split,
         "output_root": args.output_root,
+        "energy_mode": args.energy_mode,
         "tasks_evaluated": task_count,
         "tasks_missing": len(missing_tasks),
         "missing_preview": missing_tasks[:20],
@@ -290,6 +301,11 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--preview", type=int, default=12)
     parser.add_argument("--workers", type=int, default=max((os.cpu_count() or 2) - 1, 1))
+    parser.add_argument(
+        "--energy-mode",
+        choices=["relation", "relation_symbolic"],
+        default="relation",
+    )
     parser.add_argument(
         "--vote-weights",
         type=float,

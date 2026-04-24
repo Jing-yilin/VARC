@@ -143,6 +143,18 @@ This reads real VARC multi-view prediction JSON files and compares:
 - energy-only ranking
 - hybrid ranking: `energy - vote_weight * log(1 + votes)`
 
+The default energy is relation-statistical. A second mode adds an explicit
+symbolic prior:
+
+```bash
+--energy-mode relation_symbolic
+```
+
+This mode enumerates exact D4 image symmetries plus color maps from the
+demonstrations. If the training pairs are perfectly explained by one of those
+rules, candidates matching the induced rule on the test input receive a strong
+energy bonus, while near misses are penalized by pixel mismatch.
+
 Important implementation detail: real VARC prediction files can contain invalid
 or malformed candidates, including leaked background/border tokens or empty
 outputs. The energy function treats these as high-energy candidates instead of

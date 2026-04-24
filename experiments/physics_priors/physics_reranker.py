@@ -23,6 +23,16 @@ import numpy as np
 
 ARC_COLOR_COUNT = 10
 MODEL_TOKEN_COUNT = 12
+TRANSFORM_NAMES = [
+    "identity",
+    "rot90",
+    "rot180",
+    "rot270",
+    "flipud",
+    "fliplr",
+    "transpose",
+    "anti_transpose",
+]
 
 
 @dataclass(frozen=True)
@@ -30,6 +40,12 @@ class Candidate:
     label: str
     grid: list[list[int]]
     oracle_derived: bool = False
+
+
+@dataclass(frozen=True)
+class TransformColorRule:
+    transform: str
+    color_map: dict[int, int]
 
 
 def as_array(grid: list[list[int]]) -> np.ndarray:
@@ -199,18 +215,31 @@ def apply_transform(array: np.ndarray, name: str) -> np.ndarray:
     raise ValueError(name)
 
 
+def infer_color_map_from_arrays(
+    source: np.ndarray,
+    target: np.ndarray,
+    mapping: dict[int, int] | None = None,
+) -> dict[int, int] | None:
+    if source.shape != target.shape:
+        return None
+    merged = {} if mapping is None else dict(mapping)
+    for src, dst in zip(source.reshape(-1), target.reshape(-1)):
+        src_i, dst_i = int(src), int(dst)
+        if src_i in merged and merged[src_i] != dst_i:
+            return None
+        merged[src_i] = dst_i
+    return merged
+
+
 def infer_color_map(demos: list[dict]) -> dict[int, int] | None:
     mapping: dict[int, int] = {}
     for ex in demos:
         x = as_array(ex["input"])
         y = as_array(ex["output"])
-        if x.shape != y.shape:
+        updated = infer_color_map_from_arrays(x, y, mapping)
+        if updated is None:
             return None
-        for src, dst in zip(x.reshape(-1), y.reshape(-1)):
-            src_i, dst_i = int(src), int(dst)
-            if src_i in mapping and mapping[src_i] != dst_i:
-                return None
-            mapping[src_i] = dst_i
+        mapping = updated
     return mapping
 
 
@@ -221,9 +250,8 @@ def apply_color_map(grid: list[list[int]], mapping: dict[int, int]) -> list[list
 
 
 def infer_exact_transforms(demos: list[dict]) -> list[str]:
-    names = ["identity", "rot90", "rot180", "rot270", "flipud", "fliplr", "transpose", "anti_transpose"]
     valid = []
-    for name in names:
+    for name in TRANSFORM_NAMES:
         ok = True
         for ex in demos:
             transformed = apply_transform(as_array(ex["input"]), name)
@@ -236,6 +264,72 @@ def infer_exact_transforms(demos: list[dict]) -> list[str]:
         if ok:
             valid.append(name)
     return valid
+
+
+def infer_transform_color_rules(demos: list[dict]) -> list[TransformColorRule]:
+    if not demos:
+        return []
+
+    rules = []
+    for name in TRANSFORM_NAMES:
+        mapping: dict[int, int] | None = {}
+        for ex in demos:
+            transformed = apply_transform(as_array(ex["input"]), name)
+            target = as_array(ex["output"])
+            mapping = infer_color_map_from_arrays(transformed, target, mapping)
+            if mapping is None:
+                break
+        if mapping is not None:
+            rules.append(TransformColorRule(transform=name, color_map=mapping))
+    return rules
+
+
+def apply_transform_color_rule(grid: list[list[int]], rule: TransformColorRule) -> list[list[int]]:
+    transformed = apply_transform(as_array(grid), rule.transform)
+    out = np.vectorize(lambda value: rule.color_map.get(int(value), int(value)))(transformed)
+    return as_grid(out)
+
+
+def grid_mismatch_fraction(expected: list[list[int]], candidate: list[list[int]]) -> float:
+    expected_array = as_array(expected)
+    candidate_array = as_array(candidate)
+    if expected_array.shape != candidate_array.shape:
+        expected_size = max(expected_array.size, 1)
+        candidate_size = max(candidate_array.size, 1)
+        return 1.0 + abs(math.log(candidate_size / expected_size))
+    if expected_array.size == 0:
+        return 0.0
+    return float((expected_array != candidate_array).mean())
+
+
+def symbolic_rule_energy(
+    demos: list[dict],
+    test_input: list[list[int]],
+    candidate: list[list[int]],
+) -> float:
+    rules = infer_transform_color_rules(demos)
+    if not rules:
+        return 0.0
+
+    best_mismatch = min(
+        grid_mismatch_fraction(apply_transform_color_rule(test_input, rule), candidate)
+        for rule in rules
+    )
+    if best_mismatch == 0.0:
+        return -4.0
+    return 10.0 * best_mismatch
+
+
+def relation_symbolic_energy(
+    demos: list[dict],
+    test_input: list[list[int]],
+    candidate: list[list[int]],
+) -> float:
+    return relation_energy(demos, test_input, candidate) + symbolic_rule_energy(
+        demos,
+        test_input,
+        candidate,
+    )
 
 
 def corrupt_grid(grid: list[list[int]], rng: random.Random, p: float = 0.08) -> list[list[int]]:
