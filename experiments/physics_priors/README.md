@@ -325,3 +325,121 @@ solver as attention over mechanism space, not a one-off hand-coded rule. The
 next ARC-facing model should expand this basis from global shifts to object
 transport, crop/paste, tiling, symmetry, color maps, and line/fill operators,
 then use a learned controller to select and compose these low-entropy actions.
+
+## Experiment 9: Selective Object-Transport Mechanism
+
+Scripts:
+
+```bash
+uv run python experiments/physics_priors/object_transport_synthetic.py \
+  --train-size 50000 \
+  --test-size 10000 \
+  --grid-size 16 \
+  --ood-grid-size 24 \
+  --max-shift 3 \
+  --distractors 4 \
+  --epochs 50 \
+  --models cnn,global_gate,selective_gate \
+  --json-out .tmp/physics_priors/object_transport_e50.json
+
+uv run python experiments/physics_priors/object_transport_arc_search.py \
+  --data-root raw_data/ARC-AGI \
+  --split evaluation \
+  --max-shift 8 \
+  --workers 16 \
+  --json-out .tmp/physics_priors/object_transport_arc1_evaluation_component.json
+```
+
+The synthetic task moves or copies only one selected object/color while leaving
+distractors fixed. This is harder than global shift because the model must infer
+the selected object, target flow, and move/copy mode.
+
+Remote CUDA result:
+
+```text
+Synthetic selective object transport, 50k train / 10k test / 10k OOD
+Mechanism count: selected color x 48 shifts x move/copy
+
+DemoConditionedCNN, 50 epochs:
+test exact: 0.08%
+test foreground color recall: 88.22%
+OOD exact: 0.04%
+OOD foreground color recall: 86.86%
+
+GlobalShiftGate:
+test exact: 0.00%
+OOD exact: 0.00%
+
+SelectiveTransportGate:
+test exact: 99.82%
+OOD exact: 99.91%
+```
+
+Interpretation: high foreground recall is still not enough for ARC-style exact
+success. The mechanism-space gate nearly solves the synthetic task because it
+selects among object-level laws before rendering pixels.
+
+Real ARC-1 exact-rule search was much narrower:
+
+```text
+ARC-1 training, 400 tasks:
+tasks with exact object-transport rules: 4
+oracle: 1.00%
+pass@1/pass@2 after relation-energy ordering: 0.75% / 0.75%
+
+ARC-1 evaluation, 400 tasks:
+tasks with exact object-transport rules: 0
+oracle: 0.00%
+```
+
+Interpretation: object transport is a valid primitive, but by itself it is far
+too narrow for ARC. It should be one mechanism in a broader bank, not the core
+model.
+
+## Experiment 10: Symbolic Bank as VARC Companion
+
+Scripts:
+
+```bash
+uv run python experiments/physics_priors/symbolic_candidate_search.py \
+  --data-root raw_data/ARC-AGI \
+  --split evaluation \
+  --output-root "$OFFICIAL_VARC_ROOTS" \
+  --workers 16 \
+  --json-out .tmp/physics_priors/symbolic_plus_varc_arc1_eval.json
+
+uv run python experiments/physics_priors/symbolic_diverse_eval.py \
+  --data-root raw_data/ARC-AGI \
+  --split evaluation \
+  --official-roots "$OFFICIAL_VARC_ROOTS" \
+  --workers 16 \
+  --json-out .tmp/physics_priors/symbolic_diverse_arc1_eval.json
+```
+
+This broader symbolic bank includes extraction/crop, component selectors, D4
+transforms, tiling, and concatenation.
+
+Remote full ARC-1 results:
+
+```text
+Symbolic bank only:
+training broad oracle: 7.33%
+evaluation broad oracle: 2.00%
+
+Official ARC-1 VARC ensemble:
+pass@1/pass@2: 55.125% / 60.50%
+oracle: 73.75%
+
+Symbolic bank + official ensemble:
+combined oracle: 74.50%
+best pass@1/pass@2: 55.875% / 61.00%
+
+Uncertainty-gated symbolic second answer:
+best strategy: official_majority
+pass@1/pass@2: 55.125% / 60.50%
+```
+
+Interpretation: the symbolic bank adds a small amount of candidate coverage
+but is not reliable enough to directly take the second pass@2 slot. Its best
+current role is as an auxiliary candidate source and as synthetic supervision
+for a learned mechanism controller.
