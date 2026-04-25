@@ -293,6 +293,8 @@ def evaluate_official_predictions(args: argparse.Namespace, model: Ranker, stand
             if key not in predictions_by_index or "output" not in test_ex:
                 continue
             entries = get_majority_vote(predictions_by_index[key])
+            if args.candidate_limit is not None:
+                entries = entries[: args.candidate_limit]
             scored = score_candidates(model, standardizer, task["train"], test_ex["input"], entries, device)
             truth = test_ex["output"]
             add_metric(metrics["majority"], entries, truth, weight)
@@ -330,6 +332,7 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=17)
     parser.add_argument("--cpu", action="store_true")
     parser.add_argument("--vote-weights", type=float, nargs="+", default=[0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4, 5])
+    parser.add_argument("--candidate-limit", type=int, default=100)
     parser.add_argument("--json-out", type=Path, default=None)
     args = parser.parse_args()
 
