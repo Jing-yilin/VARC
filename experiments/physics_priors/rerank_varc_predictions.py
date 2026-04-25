@@ -41,8 +41,53 @@ def get_majority_vote(predictions: list[list[list[int]]]) -> list[dict]:
         grids[key] = pred
         counts[key] = counts.get(key, 0) + 1
     return [
-        {"prediction": grids[key], "votes": votes}
+        {"prediction": grids[key], "votes": votes, "vote_signal": float(votes)}
         for key, votes in sorted(counts.items(), key=lambda item: item[1], reverse=True)
+    ]
+
+
+def get_source_normalized_vote(
+    sources: list[dict[str, Any]],
+    prediction_index: str,
+) -> list[dict]:
+    raw_counts: dict[str, int] = {}
+    source_scores: dict[str, float] = {}
+    source_hits: dict[str, int] = {}
+    grids: dict[str, list[list[int]]] = {}
+
+    for source in sources:
+        predictions = source["predictions"].get(prediction_index, [])
+        if not predictions:
+            continue
+        local_counts: dict[str, int] = {}
+        local_grids: dict[str, list[list[int]]] = {}
+        for pred in predictions:
+            key = serialize(pred)
+            local_grids[key] = pred
+            local_counts[key] = local_counts.get(key, 0) + 1
+        denom = max(sum(local_counts.values()), 1)
+        for key, count in local_counts.items():
+            grids[key] = local_grids[key]
+            raw_counts[key] = raw_counts.get(key, 0) + count
+            source_scores[key] = source_scores.get(key, 0.0) + count / denom
+            source_hits[key] = source_hits.get(key, 0) + 1
+
+    return [
+        {
+            "prediction": grids[key],
+            "votes": raw_counts[key],
+            "vote_signal": source_scores[key],
+            "source_hits": source_hits[key],
+        }
+        for key in sorted(
+            grids,
+            key=lambda item: (
+                source_scores[item],
+                source_hits[item],
+                raw_counts[item],
+            ),
+            reverse=True,
+        )
     ]
 
 
@@ -58,7 +103,8 @@ def score_entries(
         energy = relation_energy(demos, test_input, entry["prediction"])
         if energy_mode == "relation_symbolic":
             energy += symbolic_rule_energy_for_rules(rules, test_input, entry["prediction"])
-        scored.append({**entry, "energy": energy, "vote_log": math.log1p(entry["votes"])})
+        vote_signal = float(entry.get("vote_signal", entry["votes"]))
+        scored.append({**entry, "energy": energy, "vote_log": math.log1p(vote_signal)})
     return scored
 
 
@@ -68,7 +114,7 @@ def order_scored_entries(scored: list[dict], vote_weight: float) -> list[dict]:
             {**entry, "score": entry["energy"] - vote_weight * entry["vote_log"]}
             for entry in scored
         ),
-        key=lambda item: (item["score"], -item["votes"]),
+        key=lambda item: (item["score"], -float(item.get("vote_signal", item["votes"])), -item["votes"]),
     )
 
 
@@ -148,17 +194,49 @@ def load_prediction_roots(output_roots: str, task_name: str) -> dict[str, list] 
     return merged
 
 
+def load_prediction_sources(output_roots: str, task_name: str) -> list[dict[str, Any]] | None:
+    sources: list[dict[str, Any]] = []
+    for root_text in output_roots.split(","):
+        root = Path(root_text.strip())
+        path = root / f"{task_name}_predictions.json"
+        if not path.exists():
+            continue
+        data = load_json(path)
+        sources.append(
+            {
+                "root": str(root),
+                "predictions": {normalize_index(k): list(v) for k, v in data.items()},
+            }
+        )
+    return sources or None
+
+
+def entries_for_index(
+    sources: list[dict[str, Any]],
+    prediction_index: str,
+    vote_mode: str,
+) -> list[dict]:
+    if vote_mode == "source_norm":
+        return get_source_normalized_vote(sources, prediction_index)
+
+    predictions: list[list[list[int]]] = []
+    for source in sources:
+        predictions.extend(source["predictions"].get(prediction_index, []))
+    return get_majority_vote(predictions)
+
+
 def evaluate_task(
     task_path_text: str,
     output_root: str,
     vote_weights: list[float],
     preview_limit: int,
     energy_mode: str,
+    vote_mode: str,
 ) -> dict:
     task_path = Path(task_path_text)
     task_name = task_path.stem
-    predictions_by_index = load_prediction_roots(output_root, task_name)
-    if predictions_by_index is None:
+    prediction_sources = load_prediction_sources(output_root, task_name)
+    if prediction_sources is None:
         return {"task": task_name, "missing": True}
 
     task = load_json(task_path)
@@ -173,9 +251,11 @@ def evaluate_task(
 
     for idx, test_ex in enumerate(test_examples):
         key = str(idx)
-        if key not in predictions_by_index or "output" not in test_ex:
+        if "output" not in test_ex:
             continue
-        entries = get_majority_vote(predictions_by_index[key])
+        entries = entries_for_index(prediction_sources, key, vote_mode)
+        if not entries:
+            continue
         ground_truth = test_ex["output"]
         scored_entries = score_entries(entries, demos, test_ex["input"], energy_mode)
 
@@ -199,6 +279,8 @@ def evaluate_task(
                     "majority_top2": [
                         {
                             "votes": item["votes"],
+                            "vote_signal": round(float(item.get("vote_signal", item["votes"])), 4),
+                            "source_hits": item.get("source_hits"),
                             "matches": item["prediction"] == ground_truth,
                         }
                         for item in entries[:2]
@@ -206,6 +288,8 @@ def evaluate_task(
                     "energy_top2": [
                         {
                             "votes": item["votes"],
+                            "vote_signal": round(float(item.get("vote_signal", item["votes"])), 4),
+                            "source_hits": item.get("source_hits"),
                             "energy": round(item["energy"], 4),
                             "score": round(item["score"], 4),
                             "matches": item["prediction"] == ground_truth,
@@ -242,6 +326,7 @@ def evaluate(args: argparse.Namespace) -> dict:
                 args.vote_weights,
                 args.preview,
                 args.energy_mode,
+                args.vote_mode,
             )
             for path in files
         ]
@@ -256,6 +341,7 @@ def evaluate(args: argparse.Namespace) -> dict:
                     args.vote_weights,
                     args.preview,
                     args.energy_mode,
+                    args.vote_mode,
                 )
                 for path in files
             ]
@@ -289,6 +375,7 @@ def evaluate(args: argparse.Namespace) -> dict:
         "split": args.split,
         "output_root": args.output_root,
         "energy_mode": args.energy_mode,
+        "vote_mode": args.vote_mode,
         "tasks_evaluated": task_count,
         "tasks_missing": len(missing_tasks),
         "missing_preview": missing_tasks[:20],
@@ -312,6 +399,12 @@ def main() -> None:
         "--energy-mode",
         choices=["relation", "relation_symbolic"],
         default="relation",
+    )
+    parser.add_argument(
+        "--vote-mode",
+        choices=["raw", "source_norm"],
+        default="raw",
+        help="Use raw candidate counts or normalize vote mass inside each prediction root.",
     )
     parser.add_argument(
         "--vote-weights",
