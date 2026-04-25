@@ -443,3 +443,85 @@ Interpretation: the symbolic bank adds a small amount of candidate coverage
 but is not reliable enough to directly take the second pass@2 slot. Its best
 current role is as an auxiliary candidate source and as synthetic supervision
 for a learned mechanism controller.
+
+## Experiment 11: Learned Symbolic Controller
+
+Script:
+
+```bash
+uv run python experiments/physics_priors/symbolic_controller_train_eval.py \
+  --official-roots "$OFFICIAL_VARC_ROOTS" \
+  --epochs 120 \
+  --confidence-epochs 300 \
+  --workers 16 \
+  --json-out .tmp/physics_priors/symbolic_controller_arc1_full.json
+```
+
+This trains only on ARC-1 `training` tasks:
+
+1. Generate broad symbolic candidates.
+2. Train a groupwise ranker to order symbolic candidates.
+3. Train a confidence head on a held-out slice of training tasks.
+4. Apply the frozen controller to ARC-1 `evaluation`, using VARC as the default.
+
+Remote result:
+
+```text
+train/val/eval examples: 330 / 86 / 419
+training positive rate for symbolic top selection: 6.67%
+validation positive rate: 3.49%
+
+Ranker validation:
+oracle: 9.30%
+top1/top2: 3.49% / 5.81%
+
+ARC-1 evaluation symbolic controller:
+oracle: 1.91%
+top1/top2: 0.48% / 0.72%
+
+Official VARC ensemble baseline:
+pass@1/pass@2: 55.125% / 60.50%
+
+Best controller-gated result:
+official_majority remains best
+pass@1/pass@2: 55.125% / 60.50%
+```
+
+Interpretation: a supervised controller trained on only ARC training labels
+does not generalize enough to trust the symbolic bank on evaluation. The
+failure mode is data scarcity and selector ambiguity: the symbolic bank often
+contains plausible crops, but choosing the correct component/color requires a
+stronger learned selector trained on more mechanism-labeled synthetic data.
+
+## Experiment 12: Variable Selector Search
+
+Script:
+
+```bash
+uv run python experiments/physics_priors/variable_selector_search.py \
+  --data-root raw_data/ARC-AGI \
+  --split evaluation \
+  --max-demo-error 0.75 \
+  --workers 8
+```
+
+This tries to infer rules such as "crop the color with max area", "crop the
+leftmost bbox", or "crop the densest bbox", optionally followed by a D4
+transform.
+
+ARC-1 evaluation result:
+
+```text
+strict max_demo_error=0.00:
+tasks with rules: 1
+oracle/pass@2: 0.25% / 0.25%
+
+soft max_demo_error=0.75:
+tasks with rules: 118
+oracle/pass@2: 0.50% / 0.50%
+```
+
+Interpretation: hand-written selector attributes do not scale. Relaxing the
+demo fit increases rule count but mostly adds wrong candidates. This supports
+the same conclusion as the learned controller: the next real model needs a
+learned object/selector module, not more one-off selector predicates.
