@@ -650,3 +650,53 @@ many plausible-looking but wrong hypotheses. This reinforces the core
 direction: the next gain needs a controller trained on ARC-statistic synthetic
 tasks and a mechanism bank whose oracle coverage is meaningfully above a few
 percent before it is allowed to compete for VARC's pass@2 slots.
+
+## Experiment 15: VARC Prediction Meta-Ranker Diagnostic
+
+Script:
+
+```bash
+/root/miniconda3/bin/python experiments/physics_priors/prediction_meta_ranker_cv.py \
+  --data-root raw_data/ARC-AGI \
+  --split evaluation \
+  --output-roots "$OFFICIAL_VARC_ROOTS" \
+  --vote-mode source_norm \
+  --folds 5 \
+  --epochs 120 \
+  --hidden 64 \
+  --batch-size 128 \
+  --candidate-limit 128 \
+  --eval-every 5 \
+  --json-out .tmp/physics_priors/meta_ranker_cv_arc1_eval_source_norm_c128.json
+```
+
+This is a diagnostic, not a fair final benchmark. It uses ARC-1 evaluation
+labels, but splits by task into five folds. The question is whether the true
+candidate inside VARC's prediction pool is learnably identifiable from
+relation-energy, vote strength, source diversity, and candidate statistics.
+
+Remote CUDA result with native conda Python:
+
+```text
+candidate limit: 128
+groups/tasks: 419 / 400
+
+majority vote mode:
+majority pass@1/pass@2: 55.125% / 60.50%
+learned-only pass@1/pass@2: 55.125% / 61.25%
+majority top1 + learned second pass@1/pass@2: 55.125% / 61.50%
+
+source-normalized vote mode:
+majority pass@1/pass@2: 55.125% / 60.50%
+learned-only pass@1/pass@2: 55.625% / 61.375%
+learned + source-normalized vote_weight=0.25: 55.50% / 61.75%
+majority top1 + learned second pass@1/pass@2: 55.125% / 61.375%
+```
+
+Interpretation: candidate reranking has a real but small learnable signal. Even
+with evaluation-label cross-validation, the gain is about +1.25 pass@2, not the
++5 target. This means the 73%+ oracle gap is not easily unlocked by shallow
+candidate statistics alone. A fair version would require generating TTT
+prediction pools on ARC training tasks, training this meta-ranker there, and
+freezing it for evaluation; but the diagnostic suggests reranking alone is
+unlikely to deliver the full target without better candidate generation.
