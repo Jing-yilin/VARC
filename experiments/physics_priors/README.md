@@ -763,3 +763,59 @@ uncertainty, not simply more symmetry views. A more promising next step is to
 save per-view metadata and train a controller/ranker on TTT prediction pools
 generated from ARC training tasks, so second-answer selection can learn when a
 low-vote symmetry candidate should replace the official second prediction.
+
+## Experiment 17: Per-View TTT Metadata Probe
+
+The expanded-orbit experiments showed that correct answers can be present but
+buried below top2. We added optional metadata logging to TTT inference:
+
+```bash
+--save-prediction-metadata
+```
+
+This preserves the original `*_predictions.json` format and writes a parallel
+`*_prediction_meta.json` with, for every view prediction:
+
+- source augmented task name
+- augmentation family and color permutation index
+- scale factor and canvas offset
+- predicted crop size and border-token detection
+- prediction key after undoing transform/color
+- mean/min softmax confidence, mean top1-top2 margin, and entropy
+
+Probe script:
+
+```bash
+/root/miniconda3/bin/python experiments/physics_priors/meta_prediction_diagnostic.py \
+  --tasks-file .tmp/physics_priors/arc1_first20_tasks.txt \
+  --prediction-root outputs/physics_ttt_arc1_meta_first20_e20_attempt_0 \
+  --json-out .tmp/physics_priors/meta_prediction_first20_e20.json
+```
+
+ARC-1 first20, 71-view TTT, 20 TTT epochs, 10 inference attempts:
+
+```text
+oracle: 70%
+
+majority:        pass@1/pass@2 = 40% / 45%
+support:         pass@1/pass@2 = 40% / 45%
+stability:       pass@1/pass@2 = 40% / 45%
+vote+confidence: pass@1/pass@2 = 40% / 45%
+vote+margin:     pass@1/pass@2 = 40% / 45%
+confidence only: pass@1/pass@2 = 35% / 35%
+```
+
+Detailed inspection:
+
+```text
+070dd51e: truth is majority rank 5 but confidence rank 1
+09c534e7: truth is majority rank 6, support rank 4
+0a2355a6: truth is majority rank 6 and not rescued by confidence/support
+```
+
+Interpretation: metadata contains some useful local signals, but they are not
+globally monotonic. Confidence can rescue a low-candidate-count task like
+`070dd51e`, while strongly hurting high-candidate-count tasks because the model
+is often very confident about wrong predictions. The selector therefore needs
+to be conditional on candidate-pool shape and task type. A single scalar
+formula over vote count, confidence, and augmentation support is not enough.
