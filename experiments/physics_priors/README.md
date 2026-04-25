@@ -256,3 +256,72 @@ The strongest next step is not a larger vanilla ViT. It is a hybrid:
    transformation family is active for the current task.
 3. Rerank candidates with demo-conditioned energy rather than majority vote
    alone.
+
+## Experiment 8: Global Manifold-Attention Prototype
+
+Script:
+
+```bash
+uv run python experiments/physics_priors/manifold_attention_synthetic.py \
+  --train-size 50000 \
+  --test-size 10000 \
+  --grid-size 16 \
+  --ood-grid-size 24 \
+  --max-shift 6 \
+  --density 0.22 \
+  --foreground-loss-weight 6 \
+  --epochs 50 \
+  --batch-size 256 \
+  --models cnn,manifold \
+  --json-out .tmp/physics_priors/manifold_shift_weighted_e50.json
+```
+
+This is a synthetic one-demo spatial-flow task. A hidden `(dy, dx)` shift maps
+`demo_in` to `demo_out`; the model must infer that shift and apply it to
+`query_in`. It tests a minimal version of the deeper ARC idea: infer a
+low-entropy mechanism, then apply it over the spatial manifold.
+
+Models:
+
+- `DemoConditionedCNN`: local convolution over `[demo_in, demo_out, query_in]`.
+- `ManifoldRuleTransformer`: rule slots globally attend over demo pixels; each
+  output coordinate attends to the inferred rule and all query pixels with a
+  relative spatial bias.
+- `ShiftTransportAttention`: attention over an explicit spatial-flow basis. It
+  scores all allowed shifts from the demo pair and applies the selected flow
+  exactly to the query grid.
+
+Remote CUDA results on RTX 4090:
+
+```text
+Task: one-demo spatial shift
+Shift basis: 168 candidate flows, max shift 6
+Train/test: 50k / 10k for learned CNN and rule-slot transformer
+OOD: 24x24 grids, same shift basis
+
+DemoConditionedCNN, weighted foreground loss, 50 epochs:
+test exact: 0.05%
+test foreground color recall: 25.72%
+OOD exact: 0.00%
+OOD foreground color recall: 25.15%
+
+ManifoldRuleTransformer, weighted foreground loss, partial run:
+epoch 10 test exact: 0.00%
+epoch 10 test foreground color recall: 2.35%
+epoch 10 OOD foreground color recall: 1.69%
+
+ShiftTransportAttention, zero training / epoch 0:
+parameters: 7
+test exact: 100.00%
+OOD exact: 100.00%
+elapsed: 12.80s
+```
+
+Interpretation: global attention alone is not enough if the network still has
+to invent the mechanism from pixels. The strongest signal so far is to expose a
+small library of natural spatial flows and let the task select among them. This
+is more general than the earlier exact-symmetry gate because it frames the
+solver as attention over mechanism space, not a one-off hand-coded rule. The
+next ARC-facing model should expand this basis from global shifts to object
+transport, crop/paste, tiling, symmetry, color maps, and line/fill operators,
+then use a learned controller to select and compose these low-entropy actions.
