@@ -79,6 +79,31 @@ def _resolve_color_inverse_map(
     return inverse_map
 
 
+def _resolve_augmentation_name(
+    task_name: str,
+    task_file_lookup: Dict[str, Path],
+    cache: Dict[str, Optional[str]],
+) -> Optional[str]:
+    if task_name in cache:
+        return cache[task_name]
+
+    task_path = task_file_lookup.get(task_name)
+    if task_path is None or not task_path.exists():
+        cache[task_name] = None
+        return None
+
+    try:
+        with task_path.open("r") as fh:
+            payload = json.load(fh)
+    except Exception:
+        cache[task_name] = None
+        return None
+
+    augmenter = payload.get("augmentation", {}).get("augmenter")
+    cache[task_name] = augmenter if isinstance(augmenter, str) else None
+    return cache[task_name]
+
+
 def _apply_color_map_to_grid(grid, inverse_color_map: Optional[Dict[int, int]]):
     if grid is None or not inverse_color_map:
         return grid
@@ -92,6 +117,31 @@ def _apply_color_map_to_grid(grid, inverse_color_map: Optional[Dict[int, int]]):
         [inverse_color_map.get(value, value) for value in row]
         for row in iterable
     ]
+
+
+def _undo_augmentation_grid(grid, augmenter: Optional[str]):
+    if grid is None or not augmenter:
+        return grid
+
+    array = np.asarray(grid)
+    if array.ndim < 2 or array.size == 0:
+        return _ensure_list(array)
+
+    if augmenter == "Rotate(90)":
+        transformed = np.rot90(array, k=3)
+    elif augmenter == "Rotate(180)":
+        transformed = np.rot90(array, k=2)
+    elif augmenter == "Rotate(270)":
+        transformed = np.rot90(array, k=1)
+    elif augmenter == "Flip(0)":
+        transformed = np.flipud(array)
+    elif augmenter == "Flip(1)":
+        transformed = np.fliplr(array)
+    elif augmenter == "Transpose()":
+        transformed = np.transpose(array)
+    else:
+        transformed = array
+    return transformed.tolist() if isinstance(transformed, np.ndarray) else transformed
 
 
 def _undo_eval_rot_grid(grid, suffix: str):
@@ -112,6 +162,8 @@ def _undo_eval_rot_grid(grid, suffix: str):
         transformed = np.flipud(array)
     elif "flip_1_" in suffix:
         transformed = np.fliplr(array)
+    elif "transpose_" in suffix:
+        transformed = np.transpose(array)
     else:
         transformed = array
     return transformed.tolist() if isinstance(transformed, np.ndarray) else transformed
@@ -171,6 +223,7 @@ def generate_predictions(
     dataset = getattr(loader, "dataset", None)
     task_file_lookup: Dict[str, Path] = {}
     color_inverse_cache: Dict[str, Optional[Dict[int, int]]] = {}
+    augmentation_name_cache: Dict[str, Optional[str]] = {}
     if dataset is not None:
         dataset.enable_translation()
         if disable_translation:
@@ -222,6 +275,10 @@ def generate_predictions(
                 color_inverse_map = _resolve_color_inverse_map(
                     task_name, task_file_lookup, color_inverse_cache
                 )
+                augmentation_name = _resolve_augmentation_name(
+                    task_name, task_file_lookup, augmentation_name_cache
+                )
+                use_name_transform = augmentation_name is None
                 task_predictions = answer_set.setdefault(base_task_name, {})
                 if cur_index not in task_predictions:
                     task_predictions[cur_index] = []
@@ -238,7 +295,11 @@ def generate_predictions(
                     while len_y < np_predict_grid.shape[0] and np_predict_grid[len_y][0] != PAD_INDEX:
                         len_y += 1
                     predict_grid = np_predict_grid[:len_y, :len_x].tolist()
-                    predict_grid = undo_fn(predict_grid)
+                    if use_name_transform:
+                        predict_grid = undo_fn(predict_grid)
+                    predict_grid = _undo_augmentation_grid(
+                        predict_grid, augmentation_name
+                    )
                     # Scale down the prediction by pixel-wise majority vote if needed
                     if scale_factor > 1:
                         downsampled_grid = []
