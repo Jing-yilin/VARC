@@ -595,3 +595,58 @@ get generalization, the next model needs a broader mechanism space and
 synthetic supervision sampled from ARC-like object statistics, including
 multi-object composition, line/fill operations, color remapping, masks,
 counting, tiling, and partial copying.
+
+## Experiment 14: Paint-On-Canvas Symbolic Primitives
+
+Script:
+
+```bash
+/Users/yilin/miniforge3/bin/python experiments/physics_priors/paint_symbolic_search.py \
+  --data-root raw_data/ARC-AGI \
+  --split evaluation \
+  --workers 8 \
+  --output-root "$OFFICIAL_VARC_ROOTS" \
+  --max-demo-error 0.25 \
+  --max-candidates 64 \
+  --json-out .tmp/physics_priors/paint_symbolic_arc1_eval_err025.json
+```
+
+This adds conservative same-canvas physical primitives that the earlier broad
+symbolic bank did not cover:
+
+- aligned line drawing between same-color points
+- bounding-box fill, border, and interior paint
+- enclosed-background fill
+- vertical/horizontal mirror completion
+- gravity-style row/column compression
+
+Exact-rule sanity check on ARC-1 training first 80 tasks:
+
+```text
+paint candidates: 3
+paint oracle/pass@1/pass@2: 3.75% / 3.75% / 3.75%
+matched examples: fill_enclosed_4, gravity_down, gravity_up
+```
+
+ARC-1 evaluation results:
+
+```text
+exact max_demo_error=0.00:
+paint candidates: 1
+paint oracle/pass@1/pass@2: 0.25% / 0.25% / 0.25%
+combined with VARC: no pass@2 gain over VARC majority
+
+soft max_demo_error=0.25:
+paint candidates: 5229
+paint oracle: 0.50%
+paint-only pass@1/pass@2: 0.00% / 0.25%
+VARC majority pass@1/pass@2: 55.125% / 60.50%
+VARC first + paint second pass@1/pass@2: 55.125% / 58.75%
+```
+
+Interpretation: adding primitives without a reliable controller is actively
+harmful. The exact paint rules are too sparse, while soft demo matching creates
+many plausible-looking but wrong hypotheses. This reinforces the core
+direction: the next gain needs a controller trained on ARC-statistic synthetic
+tasks and a mechanism bank whose oracle coverage is meaningfully above a few
+percent before it is allowed to compete for VARC's pass@2 slots.
