@@ -700,3 +700,66 @@ candidate statistics alone. A fair version would require generating TTT
 prediction pools on ARC training tasks, training this meta-ranker there, and
 freezing it for evaluation; but the diagnostic suggests reranking alone is
 unlikely to deliver the full target without better candidate generation.
+
+## Experiment 16: Expanded TTT Symmetry Orbit
+
+Motivation from rereading the VARC paper images: the strongest levers are not
+post-hoc symbolic primitives, but canvas priors, task-token TTT, and multi-view
+voting. The paper uses the original task plus five geometric transforms
+(`Rotate(90/180/270)`, `Flip(0/1)`) with ten color versions each, for 51
+task-token views. This experiment extends that orbit with `IdentityAugmenter`
+color permutations and `Transpose()`, giving 71 task-token views per task.
+
+Code:
+
+```bash
+/root/miniconda3/bin/python experiments/physics_priors/prepare_ttt_variant.py \
+  --data-root raw_data/ARC-AGI \
+  --split evaluation \
+  --output-subdir eval_idtrans_color_ttt_9 \
+  --variant identity_transpose_color_plus_paper \
+  --num-permutations 9 \
+  --clean
+```
+
+The evaluation path now reads augmentation metadata when undoing predictions,
+so extra spatial transforms such as transpose do not depend on filename
+heuristics.
+
+Remote CUDA first20 result, native conda Python, ViT checkpoint, 20 TTT epochs,
+10 inference attempts:
+
+```text
+official ensemble pass@1/pass@2: 55% / 65%
+paper-style 51-view TTT:        45% / 50%
+71-view TTT alone:              40% / 45%
+official + 51-view merged:      55% / 65%
+official + 71-view merged:      55% / 70%
+```
+
+Remote CUDA first50 result:
+
+```text
+official ensemble pass@1/pass@2: 62% / 66%
+paper-style 51-view TTT:        48% / 52%
+71-view TTT alone:              44% / 48%
+official + 71-view merged:      60% / 68%
+official + 51+71 merged:        60% / 68%
+```
+
+Targeted 30-attempt rerun on eight official-oracle-but-not-top2 tasks did not
+improve first50:
+
+```text
+official + 71-view gap8@30-attempt merged: 60% / 68%
+```
+
+Interpretation: the expanded orbit is useful but not sufficient. It produced a
+real first20 +5 pass@2 gain when merged with official predictions, and it found
+additional correct candidates on some hard tasks. But on first50 the gain
+shrinks to +2, and 30 inference attempts do not rescue the missed oracle
+candidates. The bottleneck is now candidate selection/ranking under task
+uncertainty, not simply more symmetry views. A more promising next step is to
+save per-view metadata and train a controller/ranker on TTT prediction pools
+generated from ARC training tasks, so second-answer selection can learn when a
+low-vote symmetry candidate should replace the official second prediction.
