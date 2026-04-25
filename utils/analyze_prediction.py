@@ -6,7 +6,12 @@ def analyze_data(answer_set, task_names, task_type):
     ground_truths = {}
     tasks_payload = {}
     for task_name in task_names:
-        with open(f'raw_data/{task_type}/data/evaluation/{task_name}.json', 'r') as f:
+        task_path = f'raw_data/{task_type}/data/evaluation/{task_name}.json'
+        try:
+            f = open(task_path, 'r')
+        except FileNotFoundError:
+            f = open(f'raw_data/{task_type}/data/training/{task_name}.json', 'r')
+        with f:
             cur_data = json.load(f)
         test_data = cur_data['test']
         ground_truths[task_name] = {}
