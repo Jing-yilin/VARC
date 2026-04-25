@@ -819,3 +819,42 @@ globally monotonic. Confidence can rescue a low-candidate-count task like
 is often very confident about wrong predictions. The selector therefore needs
 to be conditional on candidate-pool shape and task type. A single scalar
 formula over vote count, confidence, and augmentation support is not enough.
+
+## Multi-GPU Scaling Plan
+
+The next useful compute upgrade is not larger model memory for one TTT run; it
+is task-parallel throughput. ARC tasks are independent during TTT, so a
+4x4090/8x4090 node can generate full training/evaluation candidate pools and
+metadata several times faster than the current single-card loop.
+
+Runner:
+
+```bash
+tmux new-session -d -s varc_parallel_meta \
+  'cd /root/autodl-tmp/VARC && \
+   CUDA_DEVICE_ORDER=PCI_BUS_ID /root/miniconda3/bin/python \
+     experiments/physics_priors/parallel_ttt_runner.py \
+     --tasks-file .tmp/physics_priors/arc1_training_first400_tasks.txt \
+     --gpus 0 1 2 3 \
+     --data-root raw_data/ARC-AGI \
+     --augmented-split train_idtrans_color_ttt_9 \
+     --checkpoint saves/offline_train_ViT/checkpoint_best.pt \
+     --output-name physics_ttt_arc1_train_meta400_e20 \
+     --epochs 20 \
+     --batch-size 8 \
+     --num-attempts 10 \
+     --ttt-num-each 1 \
+     --save-prediction-metadata'
+```
+
+Recommended host shape:
+
+- minimum useful: 4x RTX 4090/A5000/A6000-class GPUs, 24 GB+ VRAM each
+- better: 8x RTX 4090 or 4x A100/H100 for one-day iteration
+- 16+ vCPU, 64 GB+ RAM, and 300 GB+ fast local SSD
+
+Use the extra GPUs to build supervised selector data: 400 ARC training tasks
+with 71-view TTT metadata, then evaluate the learned selector on 400 ARC
+evaluation tasks. This targets the observed bottleneck: correct candidates are
+often present below top2, but simple majority/confidence rules fail to promote
+them reliably.

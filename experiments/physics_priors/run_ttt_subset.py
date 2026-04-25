@@ -30,11 +30,19 @@ def _read_tasks(args: argparse.Namespace) -> list[str]:
     return unique_tasks
 
 
-def _prediction_paths(output_name: str, task: str, ttt_num_each: int) -> list[Path]:
-    return [
-        Path("outputs") / f"{output_name}_attempt_{idx}" / f"{task}_predictions.json"
-        for idx in range(ttt_num_each)
-    ]
+def _prediction_paths(
+    output_name: str,
+    task: str,
+    ttt_num_each: int,
+    include_metadata: bool,
+) -> list[Path]:
+    paths: list[Path] = []
+    for idx in range(ttt_num_each):
+        output_dir = Path("outputs") / f"{output_name}_attempt_{idx}"
+        paths.append(output_dir / f"{task}_predictions.json")
+        if include_metadata:
+            paths.append(output_dir / f"{task}_prediction_meta.json")
+    return paths
 
 
 def _build_command(args: argparse.Namespace, task: str) -> list[str]:
@@ -119,7 +127,12 @@ def main() -> None:
     )
     global_start = time.time()
     for task_idx, task in enumerate(tasks, 1):
-        expected_outputs = _prediction_paths(args.output_name, task, args.ttt_num_each)
+        expected_outputs = _prediction_paths(
+            args.output_name,
+            task,
+            args.ttt_num_each,
+            include_metadata=args.save_prediction_metadata,
+        )
         if not args.no_skip_existing and all(path.exists() for path in expected_outputs):
             print(f"[{task_idx}/{len(tasks)}] skip existing {task}", flush=True)
             continue
