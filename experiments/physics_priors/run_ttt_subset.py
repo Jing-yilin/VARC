@@ -83,6 +83,8 @@ def _build_command(args: argparse.Namespace, task: str) -> list[str]:
     ]
     if not args.compile:
         command.append("--no-compile")
+    if args.save_prediction_metadata:
+        command.append("--save-prediction-metadata")
     return command
 
 
@@ -105,6 +107,7 @@ def main() -> None:
     parser.add_argument("--num-attempts", type=int, default=10)
     parser.add_argument("--ttt-num-each", type=int, default=1)
     parser.add_argument("--compile", action="store_true")
+    parser.add_argument("--save-prediction-metadata", action="store_true")
     parser.add_argument("--no-skip-existing", action="store_true")
     args = parser.parse_args()
 

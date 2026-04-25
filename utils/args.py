@@ -129,5 +129,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--fix-scale-factor", type=int, default=1)
     parser.add_argument('--num-attempts', type=int, default=10, help="Number of attempts per evaluation example.")
     parser.add_argument('--eval-save-name', type=str, default=None, help="Name for saving evaluation predictions.")
+    parser.add_argument(
+        "--save-prediction-metadata",
+        action="store_true",
+        help="Save per-view prediction metadata alongside prediction JSON files.",
+    )
     
     return parser.parse_args()

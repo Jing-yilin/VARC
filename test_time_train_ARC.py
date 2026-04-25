@@ -180,6 +180,7 @@ def ttt_once(model, device, distributed, rank, train_loader, train_sampler, eval
         save_name=args.eval_save_name + "_attempt_" + str(cur_attempt_idx),
         eval_split=args.eval_split,
         task_type=args.data_root.split("/")[-1],  # e.g., "ARC-AGI"
+        save_metadata=args.save_prediction_metadata,
     )
 
 def train(args: argparse.Namespace) -> None:

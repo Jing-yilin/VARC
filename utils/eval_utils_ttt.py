@@ -2,7 +2,7 @@ import json
 import html
 from datetime import datetime
 from pathlib import Path
-from typing import Callable, Dict, Optional, Tuple
+from typing import Any, Callable, Dict, Optional, Tuple
 import numpy as np
 # from analysis import analyze_data
 from utils.analyze_prediction import analyze_data
@@ -104,6 +104,31 @@ def _resolve_augmentation_name(
     return cache[task_name]
 
 
+def _resolve_augmentation_metadata(
+    task_name: str,
+    task_file_lookup: Dict[str, Path],
+    cache: Dict[str, Optional[Dict[str, Any]]],
+) -> Optional[Dict[str, Any]]:
+    if task_name in cache:
+        return cache[task_name]
+
+    task_path = task_file_lookup.get(task_name)
+    if task_path is None or not task_path.exists():
+        cache[task_name] = None
+        return None
+
+    try:
+        with task_path.open("r") as fh:
+            payload = json.load(fh)
+    except Exception:
+        cache[task_name] = None
+        return None
+
+    metadata = payload.get("augmentation", {})
+    cache[task_name] = metadata if isinstance(metadata, dict) else None
+    return cache[task_name]
+
+
 def _apply_color_map_to_grid(grid, inverse_color_map: Optional[Dict[int, int]]):
     if grid is None or not inverse_color_map:
         return grid
@@ -200,6 +225,30 @@ def get_majority_vote(predictions):
     ]
     return sorted_lists
 
+
+def _compact_prediction_key(grid) -> str:
+    return json.dumps(grid, separators=(",", ":"))
+
+
+def _confidence_summary(logit_crop: torch.Tensor) -> Dict[str, float]:
+    if logit_crop.numel() == 0 or logit_crop.shape[-1] == 0 or logit_crop.shape[-2] == 0:
+        return {
+            "confidence_mean": 0.0,
+            "confidence_min": 0.0,
+            "margin_mean": 0.0,
+            "entropy_mean": 0.0,
+        }
+    probs = torch.softmax(logit_crop.float(), dim=0)
+    top2 = torch.topk(probs, k=2, dim=0).values
+    entropy_map = -(probs * torch.log(probs.clamp_min(1.0e-9))).sum(dim=0)
+    return {
+        "confidence_mean": float(top2[0].mean().item()),
+        "confidence_min": float(top2[0].min().item()),
+        "margin_mean": float((top2[0] - top2[1]).mean().item()),
+        "entropy_mean": float(entropy_map.mean().item()),
+    }
+
+
 @torch.no_grad()
 def generate_predictions(
     model: torch.nn.Module,
@@ -215,15 +264,18 @@ def generate_predictions(
     if_fix_scale: bool = False,
     save_name = "ttt_eval",
     task_type: str = "ARC-AGI",
+    save_metadata: bool = False,
 ) -> None:
     model.eval()
     answer_set = {}
+    metadata_set: Dict[str, Dict[int, list[Dict[str, Any]]]] = {}
     transform_cache: Dict[str, Tuple[str, Callable]] = {}
 
     dataset = getattr(loader, "dataset", None)
     task_file_lookup: Dict[str, Path] = {}
     color_inverse_cache: Dict[str, Optional[Dict[int, int]]] = {}
     augmentation_name_cache: Dict[str, Optional[str]] = {}
+    augmentation_metadata_cache: Dict[str, Optional[Dict[str, Any]]] = {}
     if dataset is not None:
         dataset.enable_translation()
         if disable_translation:
@@ -248,7 +300,7 @@ def generate_predictions(
         if disable_translation:
             attempt_nums = 1
 
-    for _ in range(attempt_nums):
+    for attempt_idx in range(attempt_nums):
         for batch in tqdm(loader):
             inputs = batch["inputs"].to(device)
             attention_mask = batch["attention_mask"].to(device)
@@ -278,22 +330,40 @@ def generate_predictions(
                 augmentation_name = _resolve_augmentation_name(
                     task_name, task_file_lookup, augmentation_name_cache
                 )
+                augmentation_metadata = _resolve_augmentation_metadata(
+                    task_name, task_file_lookup, augmentation_metadata_cache
+                ) or {}
                 use_name_transform = augmentation_name is None
                 task_predictions = answer_set.setdefault(base_task_name, {})
                 if cur_index not in task_predictions:
                     task_predictions[cur_index] = []
+                task_metadata = metadata_set.setdefault(base_task_name, {})
+                if cur_index not in task_metadata:
+                    task_metadata[cur_index] = []
               
                 try:
                     # Crop out the prediction from the canvas based on offset and border token
                     offset_x, offset_y = offsets[idx]
+                    offset_x_int = int(offset_x.item())
+                    offset_y_int = int(offset_y.item())
                     np_predict = np.array(preds[idx]).reshape(img_size, img_size)
-                    np_predict_grid = np_predict[offset_y:, offset_x:]
+                    np_predict_grid = np_predict[offset_y_int:, offset_x_int:]
                     # Calculate the actual length of x and y by finding the first PAD_INDEX token
                     len_x, len_y = 0, 0
                     while len_x < np_predict_grid.shape[1] and np_predict_grid[0][len_x] != PAD_INDEX:
                         len_x += 1
                     while len_y < np_predict_grid.shape[0] and np_predict_grid[len_y][0] != PAD_INDEX:
                         len_y += 1
+                    border_found_x = len_x < np_predict_grid.shape[1]
+                    border_found_y = len_y < np_predict_grid.shape[0]
+                    confidence = _confidence_summary(
+                        logits[
+                            idx,
+                            :,
+                            offset_y_int: offset_y_int + int(len_y),
+                            offset_x_int: offset_x_int + int(len_x),
+                        ]
+                    )
                     predict_grid = np_predict_grid[:len_y, :len_x].tolist()
                     if use_name_transform:
                         predict_grid = undo_fn(predict_grid)
@@ -329,12 +399,39 @@ def generate_predictions(
                     exit()
                     predict_grid = []
                 task_predictions[cur_index].append(predict_grid)
+                if save_metadata:
+                    task_metadata[cur_index].append(
+                        {
+                            "attempt_index": int(attempt_idx),
+                            "view_task_name": task_name,
+                            "base_task_name": base_task_name,
+                            "test_index": int(cur_index),
+                            "offset_x": offset_x_int,
+                            "offset_y": offset_y_int,
+                            "scale_factor": int(scale_factor),
+                            "raw_crop_height": int(len_y),
+                            "raw_crop_width": int(len_x),
+                            "prediction_height": int(len(predict_grid)),
+                            "prediction_width": int(len(predict_grid[0]) if predict_grid else 0),
+                            "border_found_x": bool(border_found_x),
+                            "border_found_y": bool(border_found_y),
+                            "augmentation_name": augmentation_name,
+                            "color_permutation_index": augmentation_metadata.get("color_permutation_index"),
+                            "source_file": augmentation_metadata.get("source_file"),
+                            "seed": augmentation_metadata.get("seed"),
+                            "prediction_key": _compact_prediction_key(predict_grid),
+                            **confidence,
+                        }
+                    )
 
     assert len(answer_set.keys()) == 1, "Only support one task for TTT evaluation."
     task_name = list(answer_set.keys())[0]
     os.makedirs(f'outputs/{save_name}', exist_ok=True)
     with open(f'outputs/{save_name}/{task_name}_predictions.json', 'w') as f:
         json.dump(answer_set[task_name], f)
+    if save_metadata:
+        with open(f'outputs/{save_name}/{task_name}_prediction_meta.json', 'w') as f:
+            json.dump(metadata_set[task_name], f)
     
     analyze_data(answer_set, list(answer_set.keys()), task_type)
    
