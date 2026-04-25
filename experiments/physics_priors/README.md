@@ -5,7 +5,7 @@ symmetry selection, and energy-based reranking.
 
 ## Environment
 
-Use `uv`:
+Use `uv` for the original local project environment:
 
 ```bash
 uv sync
@@ -13,6 +13,14 @@ uv sync
 
 Apple Silicon is supported through PyTorch MPS. This branch also patches the
 project device selection to prefer `mps` when CUDA is unavailable.
+
+For CUDA experiments on the AutoDL/SeetaCloud host, use the native conda Python:
+
+```bash
+/root/miniconda3/bin/python
+```
+
+This is the environment used for the later RTX 4090 runs below.
 
 ## Experiment 1: Physics-Inspired Candidate Reranking
 
@@ -525,3 +533,65 @@ Interpretation: hand-written selector attributes do not scale. Relaxing the
 demo fit increases rule count but mostly adds wrong candidates. This supports
 the same conclusion as the learned controller: the next real model needs a
 learned object/selector module, not more one-off selector predicates.
+
+## Experiment 13: Synthetic-Trained Selector Controller
+
+Script:
+
+```bash
+/root/miniconda3/bin/python experiments/physics_priors/selector_controller_synthetic.py \
+  --train-size 8000 \
+  --val-size 1000 \
+  --test-size 1000 \
+  --epochs 25 \
+  --batch-size 512 \
+  --hidden 128 \
+  --grid-size 16 \
+  --objects 5 \
+  --max-obj 5 \
+  --demos-per-task 3 \
+  --workers 16 \
+  --arc-split evaluation \
+  --json-out .tmp/physics_priors/selector_controller_synth8k_arc_eval.json
+```
+
+This is the learned version of Experiment 12. The synthetic task family is:
+
+```text
+input scene -> crop selected object -> optional D4 transform
+```
+
+The hidden rule chooses one selector, such as largest object, leftmost object,
+densest object, or sparsest object, and one D4 transform. The controller scores
+112 candidate mechanisms from demo-consistency features, then applies the
+selected mechanism to the query input. Training is batched over task groups so
+the controller step uses the GPU instead of feeding one tiny task at a time.
+
+Remote CUDA result with native conda Python:
+
+```text
+device: cuda
+rules: 112
+feature dim: 36
+synthetic train/val/test: 8000 / 1000 / 1000
+
+synthetic test:
+oracle: 100.00%
+top1: 98.80%
+top2: 99.90%
+
+ARC-1 evaluation zero-shot:
+rule-bank oracle: 0.75%
+controller top1/top2: 0.00% / 0.00%
+direct pass@1/pass@2: 0.00% / 0.00%
+```
+
+Interpretation: the model learns mechanism selection almost perfectly on the
+clean synthetic distribution, so the controller architecture is not the current
+blocker. The failure is distribution and mechanism coverage. Real ARC tasks are
+not mostly single-color rectangle crops under a selector-plus-D4 law; the
+available rule bank only covers about 0.75% of ARC-1 evaluation examples. To
+get generalization, the next model needs a broader mechanism space and
+synthetic supervision sampled from ARC-like object statistics, including
+multi-object composition, line/fill operations, color remapping, masks,
+counting, tiling, and partial copying.
