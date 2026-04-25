@@ -97,6 +97,7 @@ def evaluate_task(
     task_path_text: str,
     official_roots: str,
     mechanism_roots: str,
+    ratio_thresholds: list[float],
 ) -> dict[str, Any]:
     task_path = Path(task_path_text)
     task_name = task_path.stem
@@ -148,6 +149,18 @@ def evaluate_task(
                 official_order,
             ),
         }
+        if len(official_order) >= 2:
+            top_votes = max(official_order[0]["votes"], 1)
+            second_votes = max(official_order[1]["votes"], 1)
+            ratio = top_votes / second_votes
+            for threshold in ratio_thresholds:
+                second_source = mechanism_order[:1] if ratio <= threshold else official_order[1:2]
+                orders[f"uncertain_official_ttt_if_ratio<={threshold:g}"] = unique_concat(
+                    official_order[:1],
+                    second_source,
+                    official_order,
+                    mechanism_order,
+                )
 
         ground_truth = test_ex["output"]
         for name, ordered in orders.items():
@@ -178,7 +191,12 @@ def evaluate(args: argparse.Namespace) -> dict[str, Any]:
     previews = []
     task_count = 0
     for task_path in task_files(args.data_root, args.split, args.limit):
-        result = evaluate_task(str(task_path), args.official_roots, args.mechanism_roots)
+        result = evaluate_task(
+            str(task_path),
+            args.official_roots,
+            args.mechanism_roots,
+            args.ratio_thresholds,
+        )
         if result["missing"]:
             missing.append(result["task"])
             continue
@@ -214,6 +232,13 @@ def main() -> None:
     parser.add_argument("--mechanism-roots", required=True)
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--preview", type=int, default=12)
+    parser.add_argument(
+        "--ratio-thresholds",
+        type=float,
+        nargs="+",
+        default=[1.05, 1.1, 1.15, 1.25, 1.5, 2.0],
+        help="Use TTT as the second answer only when official top1/top2 vote ratio is below a threshold.",
+    )
     parser.add_argument("--json-out", type=Path, default=None)
     args = parser.parse_args()
 
