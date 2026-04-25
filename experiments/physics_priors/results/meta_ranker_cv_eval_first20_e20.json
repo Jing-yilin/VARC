@@ -1,0 +1,6968 @@
+{
+  "best": {
+    "examples": 20.0,
+    "oracle": 0.7,
+    "pass_at_1": 0.4,
+    "pass_at_2": 0.5,
+    "strategy": "learned"
+  },
+  "candidate_limit": 256,
+  "device": "cpu",
+  "fold_summaries": [
+    {
+      "eval": {
+        "best": {
+          "examples": 4.0,
+          "oracle": 0.5,
+          "pass_at_1": 0.25,
+          "pass_at_2": 0.5,
+          "strategy": "learned"
+        },
+        "metrics": {
+          "learned": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          }
+        },
+        "preview": [
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 4.3193,
+                "votes": 7
+              },
+              {
+                "matches": false,
+                "score": 3.3937,
+                "votes": 6
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 7
+              },
+              {
+                "matches": false,
+                "votes": 6
+              }
+            ],
+            "oracle": false,
+            "task": "03560426",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 3.9953,
+                "votes": 52
+              },
+              {
+                "matches": false,
+                "score": 3.4616,
+                "votes": 37
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 52
+              },
+              {
+                "matches": false,
+                "votes": 37
+              }
+            ],
+            "oracle": false,
+            "task": "0692e18c",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 7.2746,
+                "votes": 21
+              },
+              {
+                "matches": true,
+                "score": 6.043,
+                "votes": 8
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 22
+              },
+              {
+                "matches": false,
+                "votes": 21
+              }
+            ],
+            "oracle": true,
+            "task": "0a2355a6",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": true,
+                "score": 5.3516,
+                "votes": 548
+              },
+              {
+                "matches": false,
+                "score": 0.0178,
+                "votes": 3
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": true,
+                "votes": 548
+              },
+              {
+                "matches": false,
+                "votes": 4
+              }
+            ],
+            "oracle": true,
+            "task": "0bb8deee",
+            "test_index": 0
+          }
+        ],
+        "tasks_evaluated": 4
+      },
+      "fold": 0,
+      "train": {
+        "history": [
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.575199604034424,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.575199604034424,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.575199604034424,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.575199604034424,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.891221046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.891221046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.891221046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.891221046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.891221046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.039116859436035,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.039116859436035,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.039116859436035,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.039116859436035,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.039116859436035,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.2192635536193848,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.2192635536193848,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.2192635536193848,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.2192635536193848,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.2192635536193848,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.428710699081421,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.428710699081421,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.428710699081421,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.428710699081421,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.428710699081421,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.8614252805709839,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.8614252805709839,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.8614252805709839,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.8614252805709839,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.8614252805709839,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.6082550287246704,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.6082550287246704,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.6082550287246704,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.6082550287246704,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.6082550287246704,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.500596046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.500596046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.500596046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.500596046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.500596046447754,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.4404743909835815,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.4404743909835815,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.4404743909835815,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.4404743909835815,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.4404743909835815,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.3913817405700684,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.3913817405700684,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.3913817405700684,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.3913817405700684,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.3913817405700684,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.3399536609649658,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.3399536609649658,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.3399536609649658,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.3399536609649658,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.3399536609649658,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.2847377061843872,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.2847377061843872,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.2847377061843872,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.2847377061843872,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.2847377061843872,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2271219491958618,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2271219491958618,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2271219491958618,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2271219491958618,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2271219491958618,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1677101850509644,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1677101850509644,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1677101850509644,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1677101850509644,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1677101850509644,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1057586669921875,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1057586669921875,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1057586669921875,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1057586669921875,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1057586669921875,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0399523973464966,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0399523973464966,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0399523973464966,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0399523973464966,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0399523973464966,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9692789912223816,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9692789912223816,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9692789912223816,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9692789912223816,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9692789912223816,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8938841819763184,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8938841819763184,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8938841819763184,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8938841819763184,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8938841819763184,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.8146623373031616,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.8146623373031616,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.8146623373031616,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.8146623373031616,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.8146623373031616,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.7333534359931946,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.7333534359931946,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.7333534359931946,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.7333534359931946,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.7333534359931946,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.6527493000030518,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.6527493000030518,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.6527493000030518,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.6527493000030518,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.6527493000030518,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.5766472220420837,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.5766472220420837,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.5766472220420837,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.5766472220420837,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.5766472220420837,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.5090701580047607,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.5090701580047607,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.5090701580047607,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.5090701580047607,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.5090701580047607,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.45049697160720825,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.45049697160720825,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.45049697160720825,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.45049697160720825,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.45049697160720825,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 120,
+            "examples": 4.0,
+            "loss": 0.40022435784339905,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.5,
+            "strategy": "learned"
+          }
+        ],
+        "train_positive_groups": 12
+      }
+    },
+    {
+      "eval": {
+        "best": {
+          "examples": 4.0,
+          "oracle": 0.75,
+          "pass_at_1": 0.75,
+          "pass_at_2": 0.75,
+          "strategy": "majority"
+        },
+        "metrics": {
+          "learned": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          }
+        },
+        "preview": [
+          {
+            "learned_top2": [
+              {
+                "matches": true,
+                "score": 0.4455,
+                "votes": 526
+              },
+              {
+                "matches": false,
+                "score": 0.1185,
+                "votes": 1
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": true,
+                "votes": 526
+              },
+              {
+                "matches": false,
+                "votes": 11
+              }
+            ],
+            "oracle": true,
+            "task": "00576224",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": true,
+                "score": 0.2002,
+                "votes": 253
+              },
+              {
+                "matches": false,
+                "score": 0.1808,
+                "votes": 183
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": true,
+                "votes": 253
+              },
+              {
+                "matches": false,
+                "votes": 183
+              }
+            ],
+            "oracle": true,
+            "task": "009d5c81",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 0.2276,
+                "votes": 384
+              },
+              {
+                "matches": false,
+                "score": 0.1974,
+                "votes": 1
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 384
+              },
+              {
+                "matches": false,
+                "votes": 248
+              }
+            ],
+            "oracle": false,
+            "task": "0a1d4ef5",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": true,
+                "score": 0.2093,
+                "votes": 534
+              },
+              {
+                "matches": false,
+                "score": 0.1319,
+                "votes": 1
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": true,
+                "votes": 534
+              },
+              {
+                "matches": false,
+                "votes": 21
+              }
+            ],
+            "oracle": true,
+            "task": "0c9aba6e",
+            "test_index": 0
+          }
+        ],
+        "tasks_evaluated": 4
+      },
+      "fold": 1,
+      "train": {
+        "history": [
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.547615051269531,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.547615051269531,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.547615051269531,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.547615051269531,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.924258232116699,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.924258232116699,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.924258232116699,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.924258232116699,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.924258232116699,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.244592189788818,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.244592189788818,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.244592189788818,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.244592189788818,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.244592189788818,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.448068618774414,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.448068618774414,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.448068618774414,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.448068618774414,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.448068618774414,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.7359750270843506,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.7359750270843506,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.7359750270843506,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.7359750270843506,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.7359750270843506,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.248875617980957,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.248875617980957,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.248875617980957,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.248875617980957,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.248875617980957,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.9591286182403564,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.9591286182403564,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.9591286182403564,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.9591286182403564,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.9591286182403564,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7810969352722168,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7810969352722168,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7810969352722168,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7810969352722168,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7810969352722168,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.6714237928390503,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.6714237928390503,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.6714237928390503,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.6714237928390503,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.6714237928390503,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.578675389289856,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.578675389289856,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.578675389289856,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.578675389289856,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.578675389289856,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4831855297088623,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4831855297088623,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4831855297088623,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4831855297088623,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4831855297088623,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3890786170959473,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3890786170959473,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3890786170959473,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3890786170959473,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3890786170959473,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2988805770874023,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2988805770874023,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2988805770874023,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2988805770874023,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2988805770874023,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.2097721099853516,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.2097721099853516,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.2097721099853516,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.2097721099853516,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.2097721099853516,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1198018789291382,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1198018789291382,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1198018789291382,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1198018789291382,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.1198018789291382,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0289456844329834,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0289456844329834,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0289456844329834,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0289456844329834,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 1.0289456844329834,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9363712072372437,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9363712072372437,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9363712072372437,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9363712072372437,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.9363712072372437,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8422408103942871,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8422408103942871,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8422408103942871,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8422408103942871,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.8422408103942871,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7489674091339111,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7489674091339111,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7489674091339111,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7489674091339111,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7489674091339111,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6585487127304077,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6585487127304077,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6585487127304077,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6585487127304077,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6585487127304077,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.571642279624939,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.571642279624939,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.571642279624939,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.571642279624939,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.571642279624939,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49058520793914795,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49058520793914795,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49058520793914795,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49058520793914795,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49058520793914795,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4171806275844574,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4171806275844574,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4171806275844574,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4171806275844574,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4171806275844574,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.3533726632595062,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.3533726632595062,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.3533726632595062,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.3533726632595062,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.3533726632595062,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 120,
+            "examples": 4.0,
+            "loss": 0.29978835582733154,
+            "oracle": 0.75,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          }
+        ],
+        "train_positive_groups": 11
+      }
+    },
+    {
+      "eval": {
+        "best": {
+          "examples": 4.0,
+          "oracle": 1.0,
+          "pass_at_1": 0.75,
+          "pass_at_2": 0.75,
+          "strategy": "learned"
+        },
+        "metrics": {
+          "learned": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          },
+          "majority_then_learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75
+          }
+        },
+        "preview": [
+          {
+            "learned_top2": [
+              {
+                "matches": true,
+                "score": 6.3993,
+                "votes": 31
+              },
+              {
+                "matches": false,
+                "score": 6.3898,
+                "votes": 33
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 33
+              },
+              {
+                "matches": true,
+                "votes": 31
+              }
+            ],
+            "oracle": true,
+            "task": "05a7bcf2",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": true,
+                "score": 9.9873,
+                "votes": 574
+              },
+              {
+                "matches": false,
+                "score": 2.8414,
+                "votes": 12
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": true,
+                "votes": 574
+              },
+              {
+                "matches": false,
+                "votes": 12
+              }
+            ],
+            "oracle": true,
+            "task": "0607ce86",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 10.6287,
+                "votes": 82
+              },
+              {
+                "matches": false,
+                "score": 8.8431,
+                "votes": 36
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 82
+              },
+              {
+                "matches": false,
+                "votes": 36
+              }
+            ],
+            "oracle": true,
+            "task": "0becf7df",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": true,
+                "score": 12.6682,
+                "votes": 601
+              },
+              {
+                "matches": false,
+                "score": 0.0258,
+                "votes": 2
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": true,
+                "votes": 601
+              },
+              {
+                "matches": false,
+                "votes": 2
+              }
+            ],
+            "oracle": true,
+            "task": "0c786b71",
+            "test_index": 0
+          }
+        ],
+        "tasks_evaluated": 4
+      },
+      "fold": 2,
+      "train": {
+        "history": [
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.654903411865234,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.654903411865234,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.654903411865234,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.654903411865234,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.933501243591309,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.933501243591309,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.933501243591309,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.933501243591309,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.933501243591309,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.114710807800293,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.114710807800293,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.114710807800293,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.114710807800293,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 4.114710807800293,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.397984504699707,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.397984504699707,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.397984504699707,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.397984504699707,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.397984504699707,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.624809503555298,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.624809503555298,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.624809503555298,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.624809503555298,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.624809503555298,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.9656251668930054,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.9656251668930054,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.9656251668930054,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.9656251668930054,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.9656251668930054,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.628952980041504,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.628952980041504,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.628952980041504,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.628952980041504,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.628952980041504,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.4771088361740112,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.4771088361740112,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.4771088361740112,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.4771088361740112,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.4771088361740112,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.3955796957015991,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.3955796957015991,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.3955796957015991,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.3955796957015991,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.3955796957015991,
+            "oracle": 1.0,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.75,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.336456060409546,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.336456060409546,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.336456060409546,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.336456060409546,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.336456060409546,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.2770510911941528,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.2770510911941528,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.2770510911941528,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.2770510911941528,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.2770510911941528,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.213266134262085,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.213266134262085,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.213266134262085,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.213266134262085,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.213266134262085,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.1474483013153076,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.1474483013153076,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.1474483013153076,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.1474483013153076,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.1474483013153076,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.0787855386734009,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.0787855386734009,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.0787855386734009,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.0787855386734009,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.0787855386734009,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.00576913356781,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.00576913356781,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.00576913356781,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.00576913356781,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.00576913356781,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9291686415672302,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9291686415672302,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9291686415672302,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9291686415672302,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9291686415672302,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8516439199447632,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8516439199447632,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8516439199447632,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8516439199447632,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8516439199447632,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7752401232719421,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7752401232719421,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7752401232719421,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7752401232719421,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7752401232719421,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7003706693649292,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7003706693649292,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7003706693649292,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7003706693649292,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.7003706693649292,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6281704902648926,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6281704902648926,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6281704902648926,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6281704902648926,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.6281704902648926,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5585739612579346,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5585739612579346,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5585739612579346,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5585739612579346,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5585739612579346,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49366772174835205,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49366772174835205,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49366772174835205,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49366772174835205,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.49366772174835205,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4361784756183624,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.25"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4361784756183624,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.25"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4361784756183624,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.25"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4361784756183624,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.25"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.4361784756183624,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.25"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.386057049036026,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.75"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.386057049036026,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.75"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.386057049036026,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.75"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.386057049036026,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.75"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.386057049036026,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_0.75"
+          },
+          {
+            "epoch": 120,
+            "examples": 4.0,
+            "loss": 0.3427801728248596,
+            "oracle": 1.0,
+            "pass_at_1": 0.75,
+            "pass_at_2": 0.75,
+            "strategy": "learned_vote_1.25"
+          }
+        ],
+        "train_positive_groups": 10
+      }
+    },
+    {
+      "eval": {
+        "best": {
+          "examples": 4.0,
+          "oracle": 0.5,
+          "pass_at_1": 0.5,
+          "pass_at_2": 0.5,
+          "strategy": "majority"
+        },
+        "metrics": {
+          "learned": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.25,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          },
+          "majority_then_learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5
+          }
+        },
+        "preview": [
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 0.5544,
+                "votes": 1
+              },
+              {
+                "matches": false,
+                "score": 0.5479,
+                "votes": 1
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 9
+              },
+              {
+                "matches": false,
+                "votes": 5
+              }
+            ],
+            "oracle": false,
+            "task": "0934a4d8",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 0.0767,
+                "votes": 2
+              },
+              {
+                "matches": false,
+                "score": 0.0751,
+                "votes": 3
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": true,
+                "votes": 164
+              },
+              {
+                "matches": false,
+                "votes": 66
+              }
+            ],
+            "oracle": true,
+            "task": "0b17323b",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 0.1204,
+                "votes": 297
+              },
+              {
+                "matches": false,
+                "score": 0.0127,
+                "votes": 11
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 297
+              },
+              {
+                "matches": false,
+                "votes": 16
+              }
+            ],
+            "oracle": false,
+            "task": "0d87d2a6",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": true,
+                "score": 0.6119,
+                "votes": 666
+              },
+              {
+                "matches": false,
+                "score": 0.1125,
+                "votes": 2
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": true,
+                "votes": 666
+              },
+              {
+                "matches": false,
+                "votes": 18
+              }
+            ],
+            "oracle": true,
+            "task": "0e671a1a",
+            "test_index": 0
+          }
+        ],
+        "tasks_evaluated": 4
+      },
+      "fold": 3,
+      "train": {
+        "history": [
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.777282238006592,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.777282238006592,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.777282238006592,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.777282238006592,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8939385414123535,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8939385414123535,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8939385414123535,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8939385414123535,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8939385414123535,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.985928535461426,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.985928535461426,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.985928535461426,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.985928535461426,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.985928535461426,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.060981512069702,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.060981512069702,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.060981512069702,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.060981512069702,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 3.060981512069702,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.4027116298675537,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.4027116298675537,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.4027116298675537,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.4027116298675537,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 2.4027116298675537,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.0241730213165283,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.0241730213165283,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.0241730213165283,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.0241730213165283,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 2.0241730213165283,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.8223069906234741,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.8223069906234741,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.8223069906234741,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.8223069906234741,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 1.8223069906234741,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7075754404067993,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7075754404067993,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7075754404067993,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7075754404067993,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 1.7075754404067993,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.626211166381836,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.626211166381836,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.626211166381836,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.626211166381836,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 1.626211166381836,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.540444016456604,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.540444016456604,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.540444016456604,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.540444016456604,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 1.540444016456604,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4413243532180786,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4413243532180786,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4413243532180786,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4413243532180786,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 1.4413243532180786,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3355963230133057,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3355963230133057,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3355963230133057,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3355963230133057,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 1.3355963230133057,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2289832830429077,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2289832830429077,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2289832830429077,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2289832830429077,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 1.2289832830429077,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1228811740875244,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1228811740875244,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1228811740875244,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1228811740875244,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 1.1228811740875244,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.0178240537643433,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.0178240537643433,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.0178240537643433,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.0178240537643433,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 1.0178240537643433,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9162508845329285,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9162508845329285,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9162508845329285,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9162508845329285,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.9162508845329285,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8206197023391724,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8206197023391724,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8206197023391724,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8206197023391724,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.8206197023391724,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7313744425773621,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7313744425773621,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7313744425773621,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7313744425773621,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.7313744425773621,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.6490422487258911,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.6490422487258911,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.6490422487258911,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.6490422487258911,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.6490422487258911,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.573600172996521,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.573600172996521,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.573600172996521,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.573600172996521,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.573600172996521,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5048148036003113,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5048148036003113,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5048148036003113,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5048148036003113,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.5048148036003113,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.4435103237628937,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.4435103237628937,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.4435103237628937,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.4435103237628937,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.4435103237628937,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.3902973532676697,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.3902973532676697,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.3902973532676697,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.3902973532676697,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.3902973532676697,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.34498170018196106,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.34498170018196106,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.34498170018196106,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.34498170018196106,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.34498170018196106,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 120,
+            "examples": 4.0,
+            "loss": 0.3072308301925659,
+            "oracle": 0.5,
+            "pass_at_1": 0.5,
+            "pass_at_2": 0.5,
+            "strategy": "majority"
+          }
+        ],
+        "train_positive_groups": 12
+      }
+    },
+    {
+      "eval": {
+        "best": {
+          "examples": 4.0,
+          "oracle": 0.75,
+          "pass_at_1": 0.0,
+          "pass_at_2": 0.25,
+          "strategy": "learned"
+        },
+        "metrics": {
+          "learned": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25
+          },
+          "learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_0": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25
+          },
+          "majority_then_learned_vote_0.25": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned_vote_0.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned_vote_0.75": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned_vote_1": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned_vote_1.25": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned_vote_1.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned_vote_1.75": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned_vote_2": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned_vote_2.5": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          },
+          "majority_then_learned_vote_3": {
+            "examples": 4.0,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0
+          }
+        },
+        "preview": [
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 4.2456,
+                "votes": 8
+              },
+              {
+                "matches": true,
+                "score": 2.7855,
+                "votes": 3
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 8
+              },
+              {
+                "matches": false,
+                "votes": 5
+              }
+            ],
+            "oracle": true,
+            "task": "00dbd492",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 8.2055,
+                "votes": 250
+              },
+              {
+                "matches": false,
+                "score": 6.6584,
+                "votes": 146
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 250
+              },
+              {
+                "matches": false,
+                "votes": 146
+              }
+            ],
+            "oracle": true,
+            "task": "070dd51e",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 2.0399,
+                "votes": 4
+              },
+              {
+                "matches": false,
+                "score": 1.2549,
+                "votes": 5
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 5
+              },
+              {
+                "matches": false,
+                "votes": 4
+              }
+            ],
+            "oracle": false,
+            "task": "08573cc6",
+            "test_index": 0
+          },
+          {
+            "learned_top2": [
+              {
+                "matches": false,
+                "score": 3.9189,
+                "votes": 8
+              },
+              {
+                "matches": false,
+                "score": 3.2532,
+                "votes": 8
+              }
+            ],
+            "majority_top2": [
+              {
+                "matches": false,
+                "votes": 8
+              },
+              {
+                "matches": false,
+                "votes": 8
+              }
+            ],
+            "oracle": true,
+            "task": "09c534e7",
+            "test_index": 0
+          }
+        ],
+        "tasks_evaluated": 4
+      },
+      "fold": 4,
+      "train": {
+        "history": [
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.981359958648682,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.981359958648682,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.981359958648682,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 1,
+            "examples": 4.0,
+            "loss": 5.981359958648682,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8330488204956055,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8330488204956055,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8330488204956055,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8330488204956055,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 5,
+            "examples": 4.0,
+            "loss": 4.8330488204956055,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.567133903503418,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.567133903503418,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.567133903503418,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.567133903503418,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 10,
+            "examples": 4.0,
+            "loss": 3.567133903503418,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 2.363264322280884,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 2.363264322280884,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 2.363264322280884,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 2.363264322280884,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 15,
+            "examples": 4.0,
+            "loss": 2.363264322280884,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 1.5044611692428589,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 1.5044611692428589,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 1.5044611692428589,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 1.5044611692428589,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 20,
+            "examples": 4.0,
+            "loss": 1.5044611692428589,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.125203251838684,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.125203251838684,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.125203251838684,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.125203251838684,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 25,
+            "examples": 4.0,
+            "loss": 1.125203251838684,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 0.9889838099479675,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 0.9889838099479675,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 0.9889838099479675,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 0.9889838099479675,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 30,
+            "examples": 4.0,
+            "loss": 0.9889838099479675,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 0.9434096813201904,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 0.9434096813201904,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 0.9434096813201904,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 0.9434096813201904,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 35,
+            "examples": 4.0,
+            "loss": 0.9434096813201904,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 0.9171947240829468,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 0.9171947240829468,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 0.9171947240829468,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 0.9171947240829468,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 40,
+            "examples": 4.0,
+            "loss": 0.9171947240829468,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 0.8840116262435913,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 0.8840116262435913,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 0.8840116262435913,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 0.8840116262435913,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 45,
+            "examples": 4.0,
+            "loss": 0.8840116262435913,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 0.8431416749954224,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 0.8431416749954224,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 0.8431416749954224,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 0.8431416749954224,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 50,
+            "examples": 4.0,
+            "loss": 0.8431416749954224,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 0.7996250987052917,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 0.7996250987052917,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 0.7996250987052917,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 0.7996250987052917,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 55,
+            "examples": 4.0,
+            "loss": 0.7996250987052917,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 0.7566683292388916,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 0.7566683292388916,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 0.7566683292388916,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 0.7566683292388916,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 60,
+            "examples": 4.0,
+            "loss": 0.7566683292388916,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 0.7145845293998718,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 0.7145845293998718,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 0.7145845293998718,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 0.7145845293998718,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 65,
+            "examples": 4.0,
+            "loss": 0.7145845293998718,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 0.6718142032623291,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 0.6718142032623291,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 0.6718142032623291,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 0.6718142032623291,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 70,
+            "examples": 4.0,
+            "loss": 0.6718142032623291,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.6269805431365967,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.6269805431365967,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.6269805431365967,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.6269805431365967,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 75,
+            "examples": 4.0,
+            "loss": 0.6269805431365967,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.579339861869812,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.579339861869812,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.579339861869812,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.579339861869812,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 80,
+            "examples": 4.0,
+            "loss": 0.579339861869812,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.5287343859672546,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.5287343859672546,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.5287343859672546,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.5287343859672546,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 85,
+            "examples": 4.0,
+            "loss": 0.5287343859672546,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.0,
+            "strategy": "majority"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.4751325249671936,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.4751325249671936,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.4751325249671936,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.4751325249671936,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 90,
+            "examples": 4.0,
+            "loss": 0.4751325249671936,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.4187987148761749,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.4187987148761749,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.4187987148761749,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.4187987148761749,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 95,
+            "examples": 4.0,
+            "loss": 0.4187987148761749,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.36074525117874146,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.36074525117874146,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.36074525117874146,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.36074525117874146,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 100,
+            "examples": 4.0,
+            "loss": 0.36074525117874146,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.30338749289512634,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.30338749289512634,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.30338749289512634,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.30338749289512634,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 105,
+            "examples": 4.0,
+            "loss": 0.30338749289512634,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.24891157448291779,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.24891157448291779,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.24891157448291779,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.24891157448291779,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 110,
+            "examples": 4.0,
+            "loss": 0.24891157448291779,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.2002549022436142,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.2002549022436142,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.2002549022436142,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.2002549022436142,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 115,
+            "examples": 4.0,
+            "loss": 0.2002549022436142,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          },
+          {
+            "epoch": 120,
+            "examples": 4.0,
+            "loss": 0.15870031714439392,
+            "oracle": 0.75,
+            "pass_at_1": 0.0,
+            "pass_at_2": 0.25,
+            "strategy": "learned"
+          }
+        ],
+        "train_positive_groups": 11
+      }
+    }
+  ],
+  "folds": 5,
+  "groups": 20,
+  "metrics": {
+    "learned": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.5
+    },
+    "learned_vote_0": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.5
+    },
+    "learned_vote_0.25": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.5
+    },
+    "learned_vote_0.5": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "learned_vote_0.75": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "learned_vote_1": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "learned_vote_1.25": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "learned_vote_1.5": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "learned_vote_1.75": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "learned_vote_2": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "learned_vote_2.5": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "learned_vote_3": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.5
+    },
+    "majority_then_learned_vote_0": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.5
+    },
+    "majority_then_learned_vote_0.25": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned_vote_0.5": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned_vote_0.75": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned_vote_1": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned_vote_1.25": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned_vote_1.5": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned_vote_1.75": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned_vote_2": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned_vote_2.5": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    },
+    "majority_then_learned_vote_3": {
+      "examples": 20.0,
+      "oracle": 0.7,
+      "pass_at_1": 0.4,
+      "pass_at_2": 0.45
+    }
+  },
+  "tasks": 20
+}

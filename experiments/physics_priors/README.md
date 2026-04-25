@@ -858,3 +858,77 @@ with 71-view TTT metadata, then evaluate the learned selector on 400 ARC
 evaluation tasks. This targets the observed bottleneck: correct candidates are
 often present below top2, but simple majority/confidence rules fail to promote
 them reliably.
+
+## Experiment 18: Metadata Ranker CV and Transfer
+
+Before shutting down the single-4090 remote machine, we preserved two small
+result JSON files under `experiments/physics_priors/results/`:
+
+- `meta_ranker_cv_eval_first20_e20.json`
+- `meta_ranker_train_meta50_eval_meta20.json`
+
+Diagnostic task-level CV on ARC-1 evaluation first20:
+
+```bash
+/root/miniconda3/bin/python experiments/physics_priors/meta_prediction_ranker_cv.py \
+  --split evaluation \
+  --prediction-root outputs/physics_ttt_arc1_meta_first20_e20_attempt_0 \
+  --limit 20 \
+  --candidate-limit 256 \
+  --folds 5 \
+  --epochs 120 \
+  --hidden 64 \
+  --batch-size 128 \
+  --cpu \
+  --json-out .tmp/physics_priors/meta_ranker_cv_eval_first20_e20.json
+```
+
+Result:
+
+```text
+oracle:   70%
+majority: pass@1/pass@2 = 40% / 45%
+learned:  pass@1/pass@2 = 40% / 50%
+```
+
+Interpretation: per-view metadata contains learnable selector signal. This is
+not a fair final benchmark because labels come from the evaluated split, but
+folds are task-disjoint, so it is a useful signal test. The +5 pass@2
+diagnostic gain supports building a stronger selector/verifier.
+
+Transfer test from ARC training first50 metadata to ARC evaluation first20:
+
+```bash
+/root/miniconda3/bin/python experiments/physics_priors/meta_prediction_ranker_train_eval.py \
+  --train-split training \
+  --eval-split evaluation \
+  --train-prediction-root outputs/physics_ttt_arc1_train_meta_first50_e20_attempt_0 \
+  --eval-prediction-root outputs/physics_ttt_arc1_meta_first20_e20_attempt_0 \
+  --train-limit 50 \
+  --eval-limit 20 \
+  --candidate-limit 256 \
+  --epochs 160 \
+  --hidden 64 \
+  --batch-size 128 \
+  --cpu \
+  --json-out .tmp/physics_priors/meta_ranker_train_meta50_eval_meta20.json
+```
+
+Training metadata generation completed for 50/50 ARC training tasks. The
+transfer result did not beat majority:
+
+```text
+train groups: 51, train tasks: 50
+eval groups:  20, eval tasks:  20
+
+eval oracle:   70%
+eval majority: pass@1/pass@2 = 40% / 45%
+eval learned:  pass@1/pass@2 = 40% / 45%
+```
+
+Conclusion: the selector signal exists, but the current shallow metadata MLP
+does not generalize from 50 training tasks to evaluation tasks. The next
+machine should be used to generate 400-task training/evaluation metadata pools
+and train a global-attention verifier over `(demos, test input, candidate
+output, TTT metadata)`, rather than only increasing the number of TTT views or
+using scalar metadata formulas.
