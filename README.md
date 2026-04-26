@@ -6,6 +6,39 @@ This is the project webpage for the paper [ARC Is a Vision Problem!](https://arx
 
 We formulate ARC with a vision paradigm, casting it as an image-to-image translation task.
 
+---
+
+## Our Exploration: Information Bottleneck for ARC
+
+We are exploring whether an **information bottleneck** approach can improve VARC's generalization to unseen ARC tasks. The core idea: instead of memorizing a task token per task, extract a compressed **rule vector** from demonstration pairs at inference time.
+
+### Experiment Branches
+
+| Branch | Description | Status |
+|--------|-------------|--------|
+| [`experiment/info-bottleneck`](../../tree/experiment/info-bottleneck) | Hybrid encoder-decoder: rule vector + task tokens with dropout. V1-V16 experiments, entropy hypothesis validation, proxy task benchmarks. | Active |
+| [`experiment/physics-priors`](../../tree/experiment/physics-priors) | Physics-inspired priors for ARC rule learning. | Paused |
+
+### Key Results (2026-04-26)
+
+**VARC vs Hybrid A/B Comparison** — same data (RE-ARC), same params (~19M), 300 epochs:
+
+| Model | Training Tasks (exact) | Unseen Tasks (exact) | Params |
+|-------|----------------------|---------------------|--------|
+| VARC baseline (task_id memorization) | **26.68%** | 0.48% | 18.9M |
+| Our hybrid (rule vector + task tokens) | 5.77% | **0.95%** | 19.0M |
+
+VARC dominates on memorization (4.6x). Our hybrid shows 2x better generalization on unseen tasks, but both are near zero.
+
+**Entropy Hypothesis** — validated on MNIST/CIFAR proxy tasks:
+- Lower rule vector entropy correlates with better generalization (r = -0.49)
+- L1 sparsity regularization gives +1pp improvement
+- Insufficient for the +5pp target on ARC
+
+See [`EXPERIMENT_LOG.md`](../../blob/experiment/info-bottleneck/EXPERIMENT_LOG.md) on the info-bottleneck branch for full details.
+
+---
+
 ## Visualization Galleries ✨
 
 ### VARC on ARC-1 🎉
